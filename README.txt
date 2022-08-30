@@ -1,24 +1,24 @@
-VAG EDC15P Suite are software suites that enable you to edit the paramaters (maps) inside the engine management system.
-T5Suite for Trionic 5, T7Suite for Trionic 7 and T8Suite for Trionic 8.
-Motronic Suite for Volvo Motronic M4.3, M4.4 and ME7.
-VAGEDC15P Suite for VW/Audi/Seat/Skoda EDC16P (PDxxx) ECUs.
+VAG EDC15P Suite son conjuntos de software que le permiten editar los parámetros (mapas) dentro del sistema de gestión del motor.
+T5Suite para Trionic 5, T7Suite para Trionic 7 y T8Suite para Trionic 8.
+Suite Motronic para Volvo Motronic M4.3, M4.4 y ME7.
+Suite VAGEDC15P para ECU VW/Audi/Seat/Skoda EDC16P (PDxxx).
 
-If you're just starting out or about to start at this point, please do read the provided manuals first!
+Si recién está comenzando o está a punto de comenzar en este punto, ¡lea primero los manuales proporcionados!
 
-VAG EDC15P Suite details (1.3.5)
-VAGEDC15P Suite is a .NET application for tuning VW/Audi/Skoda/Seat EDC15P ECU firmware.
-The EDC15P is a Bosch development and is used in Pompe Duse (PDxxx) engines from VAG (Volkswagen Audi Group). 
-To be able to alter the settings (so called maps) in the ECU some tools are needed. 
-EDC15P Suite gives the user the possibility to alter the most important maps inside the engine management system. 
-EDC15P Suite is 100% freeware and the source is installed with the application. 
-To be able to make EDC15P Suite even better we welcome every feedback with open arms. 
+Detalles de la suite VAG EDC15P (1.3.5)
+VAGEDC15P Suite es una aplicación .NET para ajustar el firmware de la ECU de VW/Audi/Skoda/Seat EDC15P.
+El EDC15P es un desarrollo de Bosch y se utiliza en motores Pompe Duse (PDxxx) (injector bomba) de VAG (Volkswagen Audi Group).
+Para poder modificar la configuración (los llamados mapas) en la ECU, se necesitan algunas herramientas.
+EDC15P Suite brinda al usuario la posibilidad de modificar los mapas más importantes dentro del sistema de gestión del motor.
+EDC15P Suite es 100% gratuito y la fuente se instala con la aplicación.
+Para poder mejorar aún más la Suite EDC15P, recibimos todos los comentarios con los brazos abiertos.
 
-Dilemma 
+Dilema
 http://trionic.mobixs.eu/
 
 
 
------HowTo Compile------
-To work with the provides sources you need a installed Verion of VAGEDC15Suite and sth like VisualStudio.
-Set the path for required references (dlls Dev.Express, OfficeInterface etc) to your installed Version ../VAGEDC15Suite/
-enjoy ;-)
+-----Cómo compilar------
+Para trabajar con las fuentes proporcionadas, necesita una versión instalada de VAGEDC15Suite y algo como VisualStudio.
+Establezca la ruta para las referencias requeridas (dlls Dev.Express, OfficeInterface, etc.) a su versión instalada ../VAGEDC15Suite/
+disfrutar ;-)
