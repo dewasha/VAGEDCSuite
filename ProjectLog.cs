@@ -45,7 +45,7 @@ namespace VAGSuite
             switch (type)
             {
                 case LogbookEntryType.BackupfileCreated:
-                    _logEntry += "|A backup file was created|"; 
+                    _logEntry += "|Se ha creado una copia de seguridad|"; 
                     break;
                 case LogbookEntryType.LogfileStarted:
                     _logEntry += "|A realtime log file was started|";

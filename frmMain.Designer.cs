@@ -250,21 +250,21 @@
             // 
             // btnBinaryCompare
             // 
-            this.btnBinaryCompare.Caption = "Binary compare files";
+            this.btnBinaryCompare.Caption = "Comparar Archivos Binarios";
             this.btnBinaryCompare.Id = 1;
             this.btnBinaryCompare.Name = "btnBinaryCompare";
             this.btnBinaryCompare.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBinaryCompare_ItemClick);
             // 
             // btnOpenFile
             // 
-            this.btnOpenFile.Caption = "Open file";
+            this.btnOpenFile.Caption = "Abrir Archivo";
             this.btnOpenFile.Id = 2;
             this.btnOpenFile.Name = "btnOpenFile";
             this.btnOpenFile.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnOpenFile_ItemClick);
             // 
             // btnCompareFiles
             // 
-            this.btnCompareFiles.Caption = "Compare to another binary";
+            this.btnCompareFiles.Caption = "Comparar con otro Binario";
             this.btnCompareFiles.Id = 3;
             this.btnCompareFiles.Name = "btnCompareFiles";
             this.btnCompareFiles.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCompareFiles_ItemClick);
@@ -272,7 +272,7 @@
             // barPartnumber
             // 
             this.barPartnumber.Caption = "---";
-            this.barPartnumber.Hint = "Shows the partnumber of the opened file";
+            this.barPartnumber.Hint = "Muestra el numero de pieza del archivo abierto";
             this.barPartnumber.Id = 4;
             this.barPartnumber.Name = "barPartnumber";
             this.barPartnumber.TextAlignment = System.Drawing.StringAlignment.Near;
@@ -280,34 +280,34 @@
             // barAdditionalInfo
             // 
             this.barAdditionalInfo.Caption = "---";
-            this.barAdditionalInfo.Description = "Shows additional information about the opened file";
+            this.barAdditionalInfo.Description = "Muestra informacionn adicional sobre el archivo";
             this.barAdditionalInfo.Id = 5;
             this.barAdditionalInfo.Name = "barAdditionalInfo";
             this.barAdditionalInfo.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
             // barCodeBlock1
             // 
-            this.barCodeBlock1.Caption = "AUT";
+            this.barCodeBlock1.Caption = "AUTO";
             this.barCodeBlock1.Enabled = false;
-            this.barCodeBlock1.Hint = "Maps for automatic transmission present";
+            this.barCodeBlock1.Hint = "Mapas de la tramsmision automatica presentes";
             this.barCodeBlock1.Id = 6;
             this.barCodeBlock1.Name = "barCodeBlock1";
             this.barCodeBlock1.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
             // barCodeBlock2
             // 
-            this.barCodeBlock2.Caption = "MAN";
+            this.barCodeBlock2.Caption = "MANUAL";
             this.barCodeBlock2.Enabled = false;
-            this.barCodeBlock2.Hint = "Maps for manual transmission present";
+            this.barCodeBlock2.Hint = "Mapas de Tramsmision manual presentes";
             this.barCodeBlock2.Id = 7;
             this.barCodeBlock2.Name = "barCodeBlock2";
             this.barCodeBlock2.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
             // barCodeBlock3
             // 
-            this.barCodeBlock3.Caption = "4WD";
+            this.barCodeBlock3.Caption = "4X4";
             this.barCodeBlock3.Enabled = false;
-            this.barCodeBlock3.Hint = "Maps for quattro cars present";
+            this.barCodeBlock3.Hint = "Mapas de traccion quatro presentes";
             this.barCodeBlock3.Id = 8;
             this.barCodeBlock3.Name = "barCodeBlock3";
             this.barCodeBlock3.TextAlignment = System.Drawing.StringAlignment.Near;
@@ -315,14 +315,14 @@
             // barSymCount
             // 
             this.barSymCount.Caption = "0 symbols";
-            this.barSymCount.Description = "Shows how many symbols where detected in the opened file";
+            this.barSymCount.Description = "Muesrta cuantos cimbolos han sido encontrados en el archivo";
             this.barSymCount.Id = 9;
             this.barSymCount.Name = "barSymCount";
             this.barSymCount.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
             // btnTestFiles
             // 
-            this.btnTestFiles.Caption = "Test files";
+            this.btnTestFiles.Caption = "Comprobar archivos";
             this.btnTestFiles.Id = 10;
             this.btnTestFiles.Name = "btnTestFiles";
             this.btnTestFiles.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
@@ -330,106 +330,106 @@
             // 
             // btnAppSettings
             // 
-            this.btnAppSettings.Caption = "Application settings";
+            this.btnAppSettings.Caption = "Ajustes Aplicacion";
             this.btnAppSettings.Id = 11;
             this.btnAppSettings.Name = "btnAppSettings";
             this.btnAppSettings.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAppSettings_ItemClick);
             // 
             // btnCheckForUpdates
             // 
-            this.btnCheckForUpdates.Caption = "Check for updates";
+            this.btnCheckForUpdates.Caption = "Buscar Actualizaciones";
             this.btnCheckForUpdates.Id = 12;
             this.btnCheckForUpdates.Name = "btnCheckForUpdates";
             this.btnCheckForUpdates.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCheckForUpdates_ItemClick);
             // 
             // barUpdateText
             // 
-            this.barUpdateText.Caption = "No updates";
-            this.barUpdateText.Description = "Shows the automatic updater status";
+            this.barUpdateText.Caption = "No hay Actualizaciones";
+            this.barUpdateText.Description = "Muestra el actualizador automatico";
             this.barUpdateText.Id = 13;
             this.barUpdateText.Name = "barUpdateText";
             this.barUpdateText.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
             // btnReleaseNotes
             // 
-            this.btnReleaseNotes.Caption = "Read release notes";
+            this.btnReleaseNotes.Caption = "Leer notas lanzamiento";
             this.btnReleaseNotes.Id = 14;
             this.btnReleaseNotes.Name = "btnReleaseNotes";
             this.btnReleaseNotes.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnReleaseNotes_ItemClick);
             // 
             // btnEDC15PDocumentation
             // 
-            this.btnEDC15PDocumentation.Caption = "EDC15P documentation";
+            this.btnEDC15PDocumentation.Caption = "EDC15P documentacion";
             this.btnEDC15PDocumentation.Id = 15;
             this.btnEDC15PDocumentation.Name = "btnEDC15PDocumentation";
             this.btnEDC15PDocumentation.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnEDC15PDocumentation_ItemClick);
             // 
             // btnAbout
             // 
-            this.btnAbout.Caption = "About VAGEDCSuite";
+            this.btnAbout.Caption = "Acerca VAGEDCSuite";
             this.btnAbout.Id = 16;
             this.btnAbout.Name = "btnAbout";
             this.btnAbout.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAbout_ItemClick);
             // 
             // btnChecksum
             // 
-            this.btnChecksum.Caption = "Verify checksums";
+            this.btnChecksum.Caption = "Verificar checksums";
             this.btnChecksum.Id = 17;
             this.btnChecksum.Name = "btnChecksum";
             this.btnChecksum.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnChecksum_ItemClick);
             // 
             // btnFirmwareInformation
             // 
-            this.btnFirmwareInformation.Caption = "Firmware information";
+            this.btnFirmwareInformation.Caption = "Informacion Firmware";
             this.btnFirmwareInformation.Id = 18;
             this.btnFirmwareInformation.Name = "btnFirmwareInformation";
             this.btnFirmwareInformation.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnFirmwareInformation_ItemClick);
             // 
             // btnVINDecoder
             // 
-            this.btnVINDecoder.Caption = "VIN decoder";
+            this.btnVINDecoder.Caption = "Decodificador VIN";
             this.btnVINDecoder.Id = 19;
             this.btnVINDecoder.Name = "btnVINDecoder";
             this.btnVINDecoder.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnVINDecoder_ItemClick);
             // 
             // btnViewFileInHex
             // 
-            this.btnViewFileInHex.Caption = "View file in hex";
+            this.btnViewFileInHex.Caption = "Ver archivo en hexadecimal";
             this.btnViewFileInHex.Id = 20;
             this.btnViewFileInHex.Name = "btnViewFileInHex";
             this.btnViewFileInHex.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnViewFileInHex_ItemClick);
             // 
             // btnSearchMaps
             // 
-            this.btnSearchMaps.Caption = "Search map content";
+            this.btnSearchMaps.Caption = "Buscar contenido del mapa";
             this.btnSearchMaps.Id = 21;
             this.btnSearchMaps.Name = "btnSearchMaps";
             this.btnSearchMaps.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSearchMaps_ItemClick);
             // 
             // btnSaveAs
             // 
-            this.btnSaveAs.Caption = "Save as...";
+            this.btnSaveAs.Caption = "Guardar Como...";
             this.btnSaveAs.Id = 22;
             this.btnSaveAs.Name = "btnSaveAs";
             this.btnSaveAs.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSaveAs_ItemClick);
             // 
             // btnCreateAProject
             // 
-            this.btnCreateAProject.Caption = "Create a project";
+            this.btnCreateAProject.Caption = "Crear un projecto";
             this.btnCreateAProject.Id = 23;
             this.btnCreateAProject.Name = "btnCreateAProject";
             this.btnCreateAProject.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCreateAProject_ItemClick);
             // 
             // btnOpenProject
             // 
-            this.btnOpenProject.Caption = "Open a project";
+            this.btnOpenProject.Caption = "Abrir un projecto";
             this.btnOpenProject.Id = 24;
             this.btnOpenProject.Name = "btnOpenProject";
             this.btnOpenProject.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnOpenProject_ItemClick);
             // 
             // btnCloseProject
             // 
-            this.btnCloseProject.Caption = "Close project";
+            this.btnCloseProject.Caption = "Cerrar projecto";
             this.btnCloseProject.Enabled = false;
             this.btnCloseProject.Id = 25;
             this.btnCloseProject.Name = "btnCloseProject";
@@ -437,7 +437,7 @@
             // 
             // btnShowTransactionLog
             // 
-            this.btnShowTransactionLog.Caption = "Show transaction log";
+            this.btnShowTransactionLog.Caption = "Mostrar log transaccion";
             this.btnShowTransactionLog.Enabled = false;
             this.btnShowTransactionLog.Id = 26;
             this.btnShowTransactionLog.Name = "btnShowTransactionLog";
@@ -445,7 +445,7 @@
             // 
             // btnRollback
             // 
-            this.btnRollback.Caption = "Roll back/undo";
+            this.btnRollback.Caption = "Volver atras/desacer";
             this.btnRollback.Enabled = false;
             this.btnRollback.Id = 27;
             this.btnRollback.Name = "btnRollback";
@@ -453,7 +453,7 @@
             // 
             // btnRollforward
             // 
-            this.btnRollforward.Caption = "Roll forward/redo";
+            this.btnRollforward.Caption = "Hacia delante/rehacer";
             this.btnRollforward.Enabled = false;
             this.btnRollforward.Id = 28;
             this.btnRollforward.Name = "btnRollforward";
@@ -461,7 +461,7 @@
             // 
             // btnRebuildFile
             // 
-            this.btnRebuildFile.Caption = "Rebuild file";
+            this.btnRebuildFile.Caption = "Reconstruir Archivo";
             this.btnRebuildFile.Enabled = false;
             this.btnRebuildFile.Id = 29;
             this.btnRebuildFile.Name = "btnRebuildFile";
@@ -469,7 +469,7 @@
             // 
             // btnEditProject
             // 
-            this.btnEditProject.Caption = "Edit project properties";
+            this.btnEditProject.Caption = "Editar propiedades del projecto";
             this.btnEditProject.Enabled = false;
             this.btnEditProject.Id = 30;
             this.btnEditProject.Name = "btnEditProject";
@@ -477,7 +477,7 @@
             // 
             // btnAddNoteToProject
             // 
-            this.btnAddNoteToProject.Caption = "Add note to project log";
+            this.btnAddNoteToProject.Caption = "Añadir nota";
             this.btnAddNoteToProject.Enabled = false;
             this.btnAddNoteToProject.Id = 31;
             this.btnAddNoteToProject.Name = "btnAddNoteToProject";
@@ -485,7 +485,7 @@
             // 
             // btnShowProjectLogbook
             // 
-            this.btnShowProjectLogbook.Caption = "Show project logbook";
+            this.btnShowProjectLogbook.Caption = "Mostrar log projecto";
             this.btnShowProjectLogbook.Enabled = false;
             this.btnShowProjectLogbook.Id = 32;
             this.btnShowProjectLogbook.Name = "btnShowProjectLogbook";
@@ -493,7 +493,7 @@
             // 
             // btnProduceLatestBinary
             // 
-            this.btnProduceLatestBinary.Caption = "Produce latest binary";
+            this.btnProduceLatestBinary.Caption = "Producir ultimo binario";
             this.btnProduceLatestBinary.Enabled = false;
             this.btnProduceLatestBinary.Id = 33;
             this.btnProduceLatestBinary.Name = "btnProduceLatestBinary";
@@ -502,70 +502,70 @@
             // barFilenameText
             // 
             this.barFilenameText.Caption = "---";
-            this.barFilenameText.Hint = "Shows the currently opened file";
+            this.barFilenameText.Hint = "Mostrar archivo actual";
             this.barFilenameText.Id = 34;
             this.barFilenameText.Name = "barFilenameText";
             this.barFilenameText.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
             // btnCreateBackup
             // 
-            this.btnCreateBackup.Caption = "Create a backup";
+            this.btnCreateBackup.Caption = "Crear copia de seguridad";
             this.btnCreateBackup.Id = 35;
             this.btnCreateBackup.Name = "btnCreateBackup";
             this.btnCreateBackup.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCreateBackup_ItemClick);
             // 
             // btnLookupPartnumber
             // 
-            this.btnLookupPartnumber.Caption = "Lookup partnumber";
+            this.btnLookupPartnumber.Caption = "Mirar numero de referencia";
             this.btnLookupPartnumber.Id = 36;
             this.btnLookupPartnumber.Name = "btnLookupPartnumber";
             this.btnLookupPartnumber.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLookupPartnumber_ItemClick);
             // 
             // btnDriverWish
             // 
-            this.btnDriverWish.Caption = "Driver wish";
+            this.btnDriverWish.Caption = "Deseo del Conductor";
             this.btnDriverWish.Id = 37;
             this.btnDriverWish.Name = "btnDriverWish";
             this.btnDriverWish.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDriverWish_ItemClick);
             // 
             // btnTorqueLimiter
             // 
-            this.btnTorqueLimiter.Caption = "Torque limiter";
+            this.btnTorqueLimiter.Caption = "Limitador de Par";
             this.btnTorqueLimiter.Id = 38;
             this.btnTorqueLimiter.Name = "btnTorqueLimiter";
             this.btnTorqueLimiter.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTorqueLimiter_ItemClick);
             // 
             // btnSmokeLimiter
             // 
-            this.btnSmokeLimiter.Caption = "Smoke limiter";
+            this.btnSmokeLimiter.Caption = "Limitador de Humo";
             this.btnSmokeLimiter.Id = 39;
             this.btnSmokeLimiter.Name = "btnSmokeLimiter";
             this.btnSmokeLimiter.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSmokeLimiter_ItemClick);
             // 
             // btnTargetBoost
             // 
-            this.btnTargetBoost.Caption = "Target boost";
+            this.btnTargetBoost.Caption = "Presion de turbo";
             this.btnTargetBoost.Id = 40;
             this.btnTargetBoost.Name = "btnTargetBoost";
             this.btnTargetBoost.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTargetBoost_ItemClick);
             // 
             // btnBoostPressureLimiter
             // 
-            this.btnBoostPressureLimiter.Caption = "Boost pressure limiter (atm)";
+            this.btnBoostPressureLimiter.Caption = "Limitador de presion del turbo (atm)";
             this.btnBoostPressureLimiter.Id = 41;
             this.btnBoostPressureLimiter.Name = "btnBoostPressureLimiter";
             this.btnBoostPressureLimiter.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBoostPressureLimiter_ItemClick);
             // 
             // btnBoostPressureLimitSVBL
             // 
-            this.btnBoostPressureLimitSVBL.Caption = "Boost pressure guard (SVBL)";
+            this.btnBoostPressureLimitSVBL.Caption = "Presion turbo (SVBL)";
             this.btnBoostPressureLimitSVBL.Id = 42;
             this.btnBoostPressureLimitSVBL.Name = "btnBoostPressureLimitSVBL";
             this.btnBoostPressureLimitSVBL.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBoostPressureLimitSVBL_ItemClick);
             // 
             // btnN75Map
             // 
-            this.btnN75Map.Caption = "N75 duty cycle";
+            this.btnN75Map.Caption = "Ciclo Funcionamiento N75";
             this.btnN75Map.Id = 43;
             this.btnN75Map.Name = "btnN75Map";
             this.btnN75Map.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnN75Map_ItemClick);
@@ -579,7 +579,7 @@
             // 
             // btnAirmassResult
             // 
-            this.btnAirmassResult.Caption = "View performance";
+            this.btnAirmassResult.Caption = "Ver rendimiento";
             this.btnAirmassResult.Id = 45;
             this.btnAirmassResult.Name = "btnAirmassResult";
             this.btnAirmassResult.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAirmassResult_ItemClick);
@@ -587,30 +587,30 @@
             // barReadOnly
             // 
             this.barReadOnly.Caption = "---";
-            this.barReadOnly.Hint = "Indicates whether access to the current file is ok or not";
+            this.barReadOnly.Hint = "Indica si tienes acceso al archivo actual";
             this.barReadOnly.Id = 46;
             this.barReadOnly.Name = "barReadOnly";
             this.barReadOnly.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
             // btnExportXDF
             // 
-            this.btnExportXDF.Caption = "Export XDF";
+            this.btnExportXDF.Caption = "Exportar a XDF";
             this.btnExportXDF.Id = 47;
             this.btnExportXDF.Name = "btnExportXDF";
             this.btnExportXDF.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnExportXDF_ItemClick);
             // 
             // btnActivateLaunchControl
             // 
-            this.btnActivateLaunchControl.Caption = "Activate Launch Control";
+            this.btnActivateLaunchControl.Caption = "Activar Mapas Launch Control";
             this.btnActivateLaunchControl.Enabled = false;
-            this.btnActivateLaunchControl.Hint = "Tries to activate the launch control maps in the file.";
+            this.btnActivateLaunchControl.Hint = "Intecta activar los mapas de Launch Control.";
             this.btnActivateLaunchControl.Id = 48;
             this.btnActivateLaunchControl.Name = "btnActivateLaunchControl";
             this.btnActivateLaunchControl.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnActivateLaunchControl_ItemClick);
             // 
             // btnEditEEProm
             // 
-            this.btnEditEEProm.Caption = "Edit EEProm data";
+            this.btnEditEEProm.Caption = "Editar datos EEPROM";
             this.btnEditEEProm.Id = 49;
             this.btnEditEEProm.Name = "btnEditEEProm";
             this.btnEditEEProm.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnEditEEProm_ItemClick);
@@ -624,35 +624,35 @@
             // 
             // btnMergeFiles
             // 
-            this.btnMergeFiles.Caption = "Merge two files";
+            this.btnMergeFiles.Caption = "Unir dos archivos";
             this.btnMergeFiles.Id = 51;
             this.btnMergeFiles.Name = "btnMergeFiles";
             this.btnMergeFiles.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnMergeFiles_ItemClick);
             // 
             // btnSplitFiles
             // 
-            this.btnSplitFiles.Caption = "Split file in two parts";
+            this.btnSplitFiles.Caption = "Separar archivo en dos partes";
             this.btnSplitFiles.Id = 52;
             this.btnSplitFiles.Name = "btnSplitFiles";
             this.btnSplitFiles.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSplitFiles_ItemClick);
             // 
             // btnBuildLibrary
             // 
-            this.btnBuildLibrary.Caption = "Build library";
+            this.btnBuildLibrary.Caption = "Construir libreria";
             this.btnBuildLibrary.Id = 53;
             this.btnBuildLibrary.Name = "btnBuildLibrary";
             this.btnBuildLibrary.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBuildLibrary_ItemClick);
             // 
             // btnUserManual
             // 
-            this.btnUserManual.Caption = "EDC15P Suite user manual";
+            this.btnUserManual.Caption = "Manual de usuario EDC15P Suite";
             this.btnUserManual.Id = 54;
             this.btnUserManual.Name = "btnUserManual";
             this.btnUserManual.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnUserManual_ItemClick);
             // 
             // barSubItem1
             // 
-            this.barSubItem1.Caption = "Import ...";
+            this.barSubItem1.Caption = "Importar ...";
             this.barSubItem1.Id = 55;
             this.barSubItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1),
@@ -693,7 +693,7 @@
             // 
             // barButtonItem5
             // 
-            this.barButtonItem5.Caption = "DAMOS definition";
+            this.barButtonItem5.Caption = "DAMOS definicion";
             this.barButtonItem5.Enabled = false;
             this.barButtonItem5.Id = 60;
             this.barButtonItem5.Name = "barButtonItem5";
@@ -701,37 +701,37 @@
             // 
             // btnActivateSmokeLimiters
             // 
-            this.btnActivateSmokeLimiters.Caption = "Activate multi smoke limiters";
+            this.btnActivateSmokeLimiters.Caption = "Activar multi limitadores de humo";
             this.btnActivateSmokeLimiters.Enabled = false;
-            this.btnActivateSmokeLimiters.Hint = "Tries to activate the coolant dependant smoke limiters.";
+            this.btnActivateSmokeLimiters.Hint = "Intenta activar los multi limitadores de humo.";
             this.btnActivateSmokeLimiters.Id = 61;
             this.btnActivateSmokeLimiters.Name = "btnActivateSmokeLimiters";
             this.btnActivateSmokeLimiters.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnActivateSmokeLimiters_ItemClick);
             // 
             // btnExportToExcel
             // 
-            this.btnExportToExcel.Caption = "Export map to Excel";
+            this.btnExportToExcel.Caption = "Exportar mapa a Excel";
             this.btnExportToExcel.Id = 62;
             this.btnExportToExcel.Name = "btnExportToExcel";
             this.btnExportToExcel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnExportToExcel_ItemClick);
             // 
             // btnExcelImport
             // 
-            this.btnExcelImport.Caption = "Import map from Excel";
+            this.btnExcelImport.Caption = "Importar mapa de Excel";
             this.btnExcelImport.Id = 63;
             this.btnExcelImport.Name = "btnExcelImport";
             this.btnExcelImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnExcelImport_ItemClick);
             // 
             // btnIQByMap
             // 
-            this.btnIQByMap.Caption = "IQ by MAP limiter";
+            this.btnIQByMap.Caption = "IQ por limitador MAP";
             this.btnIQByMap.Id = 64;
             this.btnIQByMap.Name = "btnIQByMap";
             this.btnIQByMap.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnIQByMap_ItemClick);
             // 
             // btnIQByMAF
             // 
-            this.btnIQByMAF.Caption = "IQ by MAF limiter";
+            this.btnIQByMAF.Caption = "IQ Por limitador CAUDA";
             this.btnIQByMAF.Id = 65;
             this.btnIQByMAF.Name = "btnIQByMAF";
             this.btnIQByMAF.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnIQByMAF_ItemClick);
@@ -743,7 +743,7 @@
             this.rbnSettings,
             this.rbnPageGourpProjects});
             this.ribFile.Name = "ribFile";
-            this.ribFile.Text = "File";
+            this.ribFile.Text = "Archivo";
             // 
             // rbpgGeneralFile
             // 
@@ -764,7 +764,7 @@
             this.rbnSettings.ItemLinks.Add(this.btnAppSettings);
             this.rbnSettings.ItemLinks.Add(this.btnLookupPartnumber);
             this.rbnSettings.Name = "rbnSettings";
-            this.rbnSettings.Text = "Settings";
+            this.rbnSettings.Text = "Ajustes";
             // 
             // rbnPageGourpProjects
             // 
@@ -781,7 +781,7 @@
             this.rbnPageGourpProjects.ItemLinks.Add(this.btnShowProjectLogbook);
             this.rbnPageGourpProjects.ItemLinks.Add(this.btnProduceLatestBinary);
             this.rbnPageGourpProjects.Name = "rbnPageGourpProjects";
-            this.rbnPageGourpProjects.Text = "Projects";
+            this.rbnPageGourpProjects.Text = "Projectos";
             // 
             // ribActions
             // 
@@ -790,7 +790,7 @@
             this.rbnPageGroupInformation,
             this.rbnPageGroupTools});
             this.ribActions.Name = "ribActions";
-            this.ribActions.Text = "Actions";
+            this.ribActions.Text = "Acciones";
             // 
             // ribpgGeneralActions
             // 
@@ -807,7 +807,7 @@
             this.rbnPageGroupInformation.ItemLinks.Add(this.btnFirmwareInformation);
             this.rbnPageGroupInformation.ItemLinks.Add(this.btnVINDecoder);
             this.rbnPageGroupInformation.Name = "rbnPageGroupInformation";
-            this.rbnPageGroupInformation.Text = "Information";
+            this.rbnPageGroupInformation.Text = "Informacion";
             // 
             // rbnPageGroupTools
             // 
@@ -823,7 +823,7 @@
             this.rbnPageGroupTools.ItemLinks.Add(this.btnExportToExcel, true);
             this.rbnPageGroupTools.ItemLinks.Add(this.btnExcelImport);
             this.rbnPageGroupTools.Name = "rbnPageGroupTools";
-            this.rbnPageGroupTools.Text = "Tools";
+            this.rbnPageGroupTools.Text = "Herramientas";
             // 
             // rbnPageTuning
             // 
@@ -846,7 +846,7 @@
             this.rbnPageInjection.ItemLinks.Add(this.btnInjectorDuration);
             this.rbnPageInjection.ItemLinks.Add(this.btnStartIQ);
             this.rbnPageInjection.Name = "rbnPageInjection";
-            this.rbnPageInjection.Text = "Injection quantity";
+            this.rbnPageInjection.Text = "Cantidad Injeccion";
             // 
             // rbnPageTurbo
             // 
@@ -864,13 +864,13 @@
             this.rbnPageSkins.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rbnPageGroupSkins});
             this.rbnPageSkins.Name = "rbnPageSkins";
-            this.rbnPageSkins.Text = "Skins";
+            this.rbnPageSkins.Text = "Mascaras";
             // 
             // rbnPageGroupSkins
             // 
             this.rbnPageGroupSkins.AllowTextClipping = false;
             this.rbnPageGroupSkins.Name = "rbnPageGroupSkins";
-            this.rbnPageGroupSkins.Text = "Available skins";
+            this.rbnPageGroupSkins.Text = "Mascaras disponibles";
             // 
             // rbnPageHelp
             // 
@@ -878,7 +878,7 @@
             this.rbnPageGroupUpdate,
             this.rbnPageDocumentation});
             this.rbnPageHelp.Name = "rbnPageHelp";
-            this.rbnPageHelp.Text = "Help";
+            this.rbnPageHelp.Text = "Ayuda";
             // 
             // rbnPageGroupUpdate
             // 
@@ -886,7 +886,7 @@
             this.rbnPageGroupUpdate.ItemLinks.Add(this.btnCheckForUpdates);
             this.rbnPageGroupUpdate.ItemLinks.Add(this.btnReleaseNotes);
             this.rbnPageGroupUpdate.Name = "rbnPageGroupUpdate";
-            this.rbnPageGroupUpdate.Text = "Updates";
+            this.rbnPageGroupUpdate.Text = "Actualizaciones";
             // 
             // rbnPageDocumentation
             // 
@@ -895,7 +895,7 @@
             this.rbnPageDocumentation.ItemLinks.Add(this.btnUserManual);
             this.rbnPageDocumentation.ItemLinks.Add(this.btnAbout);
             this.rbnPageDocumentation.Name = "rbnPageDocumentation";
-            this.rbnPageDocumentation.Text = "Documentation";
+            this.rbnPageDocumentation.Text = "Documentacion";
             // 
             // ribbonStatusBar1
             // 
@@ -942,7 +942,7 @@
             this.dockSymbols.Options.ShowCloseButton = false;
             this.dockSymbols.OriginalSize = new System.Drawing.Size(527, 200);
             this.dockSymbols.Size = new System.Drawing.Size(527, 347);
-            this.dockSymbols.Text = "Maps";
+            this.dockSymbols.Text = "Mapas";
             // 
             // dockPanel1_Container
             // 
@@ -980,21 +980,21 @@
             // 
             this.editXAxisToolStripMenuItem.Name = "editXAxisToolStripMenuItem";
             this.editXAxisToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
-            this.editXAxisToolStripMenuItem.Text = "Edit x axis";
+            this.editXAxisToolStripMenuItem.Text = "Editar eje x";
             this.editXAxisToolStripMenuItem.Click += new System.EventHandler(this.editXAxisToolStripMenuItem_Click);
             // 
             // editYAxisToolStripMenuItem
             // 
             this.editYAxisToolStripMenuItem.Name = "editYAxisToolStripMenuItem";
             this.editYAxisToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
-            this.editYAxisToolStripMenuItem.Text = "Edit y axis";
+            this.editYAxisToolStripMenuItem.Text = "Editar eje y";
             this.editYAxisToolStripMenuItem.Click += new System.EventHandler(this.editYAxisToolStripMenuItem_Click);
             // 
             // exportToExcelToolStripMenuItem
             // 
             this.exportToExcelToolStripMenuItem.Name = "exportToExcelToolStripMenuItem";
             this.exportToExcelToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
-            this.exportToExcelToolStripMenuItem.Text = "Export to Excel";
+            this.exportToExcelToolStripMenuItem.Text = "Exportar a Excel";
             this.exportToExcelToolStripMenuItem.Click += new System.EventHandler(this.exportToExcelToolStripMenuItem_Click);
             // 
             // gridViewSymbols
@@ -1019,14 +1019,14 @@
             this.gridViewSymbols.GridControl = this.gridControl1;
             this.gridViewSymbols.GroupCount = 2;
             this.gridViewSymbols.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "Category", null, "({0})")});
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "Categoria", null, "({0})")});
             this.gridViewSymbols.Name = "gridViewSymbols";
             this.gridViewSymbols.OptionsBehavior.AllowIncrementalSearch = true;
             this.gridViewSymbols.OptionsFilter.UseNewCustomFilterDialog = true;
             this.gridViewSymbols.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridViewSymbols.OptionsView.ShowGroupPanel = false;
             this.gridViewSymbols.OptionsView.ShowIndicator = false;
-            this.gridViewSymbols.PreviewFieldName = "Description";
+            this.gridViewSymbols.PreviewFieldName = "Descripcion";
             this.gridViewSymbols.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gcSymbolCategory, DevExpress.Data.ColumnSortOrder.Ascending),
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gcSymbolSubCategory, DevExpress.Data.ColumnSortOrder.Ascending),
@@ -1038,9 +1038,9 @@
             // 
             // gcSymbolName
             // 
-            this.gcSymbolName.Caption = "Name";
-            this.gcSymbolName.FieldName = "Varname";
-            this.gcSymbolName.Name = "gcSymbolName";
+            this.gcSymbolName.Caption = "Nombre";
+            this.gcSymbolName.FieldName = "NombreVar";
+            this.gcSymbolName.Name = "Nombresimbologc";
             this.gcSymbolName.OptionsColumn.AllowEdit = false;
             this.gcSymbolName.OptionsColumn.ReadOnly = true;
             this.gcSymbolName.Visible = true;
@@ -1049,8 +1049,8 @@
             // 
             // gcSymbolAddress
             // 
-            this.gcSymbolAddress.Caption = "Address";
-            this.gcSymbolAddress.FieldName = "Flash_start_address";
+            this.gcSymbolAddress.Caption = "Direccion";
+            this.gcSymbolAddress.FieldName = "Direccion_inicio_flash";
             this.gcSymbolAddress.Name = "gcSymbolAddress";
             this.gcSymbolAddress.OptionsColumn.AllowEdit = false;
             this.gcSymbolAddress.OptionsColumn.ReadOnly = true;
@@ -1060,33 +1060,33 @@
             // 
             // gcSymbolLength
             // 
-            this.gcSymbolLength.Caption = "Length";
-            this.gcSymbolLength.FieldName = "Length";
+            this.gcSymbolLength.Caption = "Lengitud";
+            this.gcSymbolLength.FieldName = "Lengitud";
             this.gcSymbolLength.Name = "gcSymbolLength";
             this.gcSymbolLength.OptionsColumn.AllowEdit = false;
             this.gcSymbolLength.OptionsColumn.ReadOnly = true;
             // 
             // gcSymbolXLen
             // 
-            this.gcSymbolXLen.Caption = "Width";
-            this.gcSymbolXLen.FieldName = "X_axis_length";
+            this.gcSymbolXLen.Caption = "Ancho";
+            this.gcSymbolXLen.FieldName = "Longitud_eje_X";
             this.gcSymbolXLen.Name = "gcSymbolXLen";
             this.gcSymbolXLen.OptionsColumn.AllowEdit = false;
             this.gcSymbolXLen.OptionsColumn.ReadOnly = true;
             // 
             // gcSymbolYLen
             // 
-            this.gcSymbolYLen.Caption = "Height";
-            this.gcSymbolYLen.FieldName = "Y_axis_length";
+            this.gcSymbolYLen.Caption = "Alto";
+            this.gcSymbolYLen.FieldName = "Longitud_eje_Y";
             this.gcSymbolYLen.Name = "gcSymbolYLen";
             this.gcSymbolYLen.OptionsColumn.AllowEdit = false;
             this.gcSymbolYLen.OptionsColumn.ReadOnly = true;
             // 
             // gcSymbolCategory
             // 
-            this.gcSymbolCategory.Caption = "Category";
-            this.gcSymbolCategory.FieldName = "Category";
-            this.gcSymbolCategory.GroupFormat.FormatString = "{0}: [#image]{1} {2}";
+            this.gcSymbolCategory.Caption = "Categoria";
+            this.gcSymbolCategory.FieldName = "Categoria";
+            this.gcSymbolCategory.GroupFormat.FormatString = "{0}: [#imagen]{1} {2}";
             this.gcSymbolCategory.Name = "gcSymbolCategory";
             this.gcSymbolCategory.OptionsColumn.AllowEdit = false;
             this.gcSymbolCategory.OptionsColumn.ReadOnly = true;
@@ -1101,57 +1101,57 @@
             // 
             // gcSymbolDescription
             // 
-            this.gcSymbolDescription.Caption = "Description";
-            this.gcSymbolDescription.FieldName = "Description";
-            this.gcSymbolDescription.Name = "gcSymbolDescription";
+            this.gcSymbolDescription.Caption = "Descripcion";
+            this.gcSymbolDescription.FieldName = "Descripcion";
+            this.gcSymbolDescription.Name = "gcSymbolDescripcion";
             this.gcSymbolDescription.OptionsColumn.AllowEdit = false;
             this.gcSymbolDescription.OptionsColumn.ReadOnly = true;
             this.gcSymbolDescription.Width = 165;
             // 
             // gcSymbolSubCategory
             // 
-            this.gcSymbolSubCategory.Caption = "Subcategory";
-            this.gcSymbolSubCategory.FieldName = "Subcategory";
-            this.gcSymbolSubCategory.GroupFormat.FormatString = "{0}: [#image]{1} {2}";
-            this.gcSymbolSubCategory.Name = "gcSymbolSubCategory";
+            this.gcSymbolSubCategory.Caption = "Subcategoria";
+            this.gcSymbolSubCategory.FieldName = "Subcategoria";
+            this.gcSymbolSubCategory.GroupFormat.FormatString = "{0}: [#imagen]{1} {2}";
+            this.gcSymbolSubCategory.Name = "gcSymbolSubCategoria";
             this.gcSymbolSubCategory.OptionsColumn.AllowEdit = false;
             this.gcSymbolSubCategory.OptionsColumn.ReadOnly = true;
             // 
             // gcSymbolUserdescription
             // 
-            this.gcSymbolUserdescription.Caption = "Userdescription";
-            this.gcSymbolUserdescription.FieldName = "Userdescription";
+            this.gcSymbolUserdescription.Caption = "Descripcion_usuario";
+            this.gcSymbolUserdescription.FieldName = "Descripcion_usuario";
             this.gcSymbolUserdescription.Name = "gcSymbolUserdescription";
             this.gcSymbolUserdescription.Width = 138;
             // 
             // gcSymbolXID
             // 
-            this.gcSymbolXID.Caption = "Y axis ID";
-            this.gcSymbolXID.FieldName = "X_axis_ID";
+            this.gcSymbolXID.Caption = "ID_eje_Y";
+            this.gcSymbolXID.FieldName = "ID_eje_X";
             this.gcSymbolXID.Name = "gcSymbolXID";
             this.gcSymbolXID.OptionsColumn.AllowEdit = false;
             this.gcSymbolXID.OptionsColumn.ReadOnly = true;
             // 
             // gcSymbolYID
             // 
-            this.gcSymbolYID.Caption = "X axis ID";
-            this.gcSymbolYID.FieldName = "Y_axis_ID";
+            this.gcSymbolYID.Caption = "ID_eje_X";
+            this.gcSymbolYID.FieldName = "ID_eje_Y";
             this.gcSymbolYID.Name = "gcSymbolYID";
             this.gcSymbolYID.OptionsColumn.AllowEdit = false;
             this.gcSymbolYID.OptionsColumn.ReadOnly = true;
             // 
             // gcSymbolXDescr
             // 
-            this.gcSymbolXDescr.Caption = "Y axis descr";
-            this.gcSymbolXDescr.FieldName = "Y_axis_descr";
+            this.gcSymbolXDescr.Caption = "descrip_eje_Y";
+            this.gcSymbolXDescr.FieldName = "descrip_eje_Y";
             this.gcSymbolXDescr.Name = "gcSymbolXDescr";
             this.gcSymbolXDescr.OptionsColumn.AllowEdit = false;
             this.gcSymbolXDescr.OptionsColumn.ReadOnly = true;
             // 
             // gcSymbolYDescr
             // 
-            this.gcSymbolYDescr.Caption = "X axis descr";
-            this.gcSymbolYDescr.FieldName = "X_axis_descr";
+            this.gcSymbolYDescr.Caption = "descrip_eje_X";
+            this.gcSymbolYDescr.FieldName = "descrip_eje_X";
             this.gcSymbolYDescr.Name = "gcSymbolYDescr";
             this.gcSymbolYDescr.OptionsColumn.AllowEdit = false;
             this.gcSymbolYDescr.OptionsColumn.ReadOnly = true;
@@ -1162,34 +1162,34 @@
             // 
             // btnCreateProject
             // 
-            this.btnCreateProject.Caption = "Create a project";
+            this.btnCreateProject.Caption = "Crear un projecto";
             this.btnCreateProject.Id = 99;
             this.btnCreateProject.Name = "btnCreateProject";
             // 
             // btnSOILimiter
             // 
-            this.btnSOILimiter.Caption = "SOI limiter";
+            this.btnSOILimiter.Caption = "Limitador SOI";
             this.btnSOILimiter.Id = 66;
             this.btnSOILimiter.Name = "btnSOILimiter";
             this.btnSOILimiter.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSOILimiter_ItemClick);
             // 
             // btnStartOfInjection
             // 
-            this.btnStartOfInjection.Caption = "Start of injection";
+            this.btnStartOfInjection.Caption = "Inicio Injeccion";
             this.btnStartOfInjection.Id = 67;
             this.btnStartOfInjection.Name = "btnStartOfInjection";
             this.btnStartOfInjection.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnStartOfInjection_ItemClick);
             // 
             // btnInjectorDuration
             // 
-            this.btnInjectorDuration.Caption = "Injection duration";
+            this.btnInjectorDuration.Caption = "Duracion Injeccion";
             this.btnInjectorDuration.Id = 68;
             this.btnInjectorDuration.Name = "btnInjectorDuration";
             this.btnInjectorDuration.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnInjectorDuration_ItemClick);
             // 
             // btnStartIQ
             // 
-            this.btnStartIQ.Caption = "Start IQ";
+            this.btnStartIQ.Caption = "IQ Inicio";
             this.btnStartIQ.Id = 69;
             this.btnStartIQ.Name = "btnStartIQ";
             this.btnStartIQ.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnStartIQ_ItemClick);

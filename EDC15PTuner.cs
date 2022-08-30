@@ -47,7 +47,7 @@ namespace VAGSuite
                                 egrdata[rows * sh.Y_axis_length * 2 + (cols * 2) + 1] = b2;
                             }
                         }
-                        SaveAndSyncData(egrdata.Length, (int)sh.Flash_start_address, egrdata, filename, true, "Disabled EGR map", autoUpdateChecksum);
+                        SaveAndSyncData(egrdata.Length, (int)sh.Flash_start_address, egrdata, filename, true, "Mapa Egr Descativado", autoUpdateChecksum);
                     }
                 }
             }
@@ -64,7 +64,7 @@ namespace VAGSuite
             // 
 
             // x = rpm
-            int slAddress = (int)Tools.Instance.GetSymbolAddressLike(Tools.Instance.m_symbols, "Smoke limiter");
+            int slAddress = (int)Tools.Instance.GetSymbolAddressLike(Tools.Instance.m_symbols, "Limitador Humo");
 
             if (slAddress > 0)
             {
@@ -176,7 +176,7 @@ namespace VAGSuite
         {
             bool retval = true;
             //Increase driverwish to peakIQ if it is not already (only the rightmost 2 columns)
-            int tlAddress = (int)Tools.Instance.GetSymbolAddressLike(Tools.Instance.m_symbols, "Torque limiter");
+            int tlAddress = (int)Tools.Instance.GetSymbolAddressLike(Tools.Instance.m_symbols, "Limitador de Par");
 
             if (tlAddress > 0)
             {
@@ -232,7 +232,7 @@ namespace VAGSuite
         {
             bool retval = true;
             //Increase driverwish to peakIQ if it is not already (only the rightmost 2 columns)
-            int dwAddress = (int)Tools.Instance.GetSymbolAddressLike(Tools.Instance.m_symbols, "Driver wish");
+            int dwAddress = (int)Tools.Instance.GetSymbolAddressLike(Tools.Instance.m_symbols, "Deseo del Conductor");
 
             if (dwAddress > 0)
             {

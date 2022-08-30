@@ -85,14 +85,14 @@ namespace VAGSuite
 
 
                         m_LatestReleaseDate = StringToDateTime("en-US", ds.Tables[1].Rows[0]["pubDate"].ToString());
-                        Console.WriteLine("Release date: " + m_LatestReleaseDate.ToString());
+                        Console.WriteLine("Fecha Lanzamiento: " + m_LatestReleaseDate.ToString());
                     }
-                    ds.Tables[2].Columns.Add("Date", System.Type.GetType("System.DateTime"));
+                    ds.Tables[2].Columns.Add("Fecha", System.Type.GetType("System.DateTime"));
                     foreach (DataRow dr in ds.Tables[2].Rows)
                     {
                         try
                         {
-                            dr["Date"] = StringToDateTime("en-US", dr["pubDate"].ToString()).Date;
+                            dr["Fecha"] = StringToDateTime("es-ES", dr["pubDate"].ToString()).Date;
                         }
                         catch (Exception convE)
                         {

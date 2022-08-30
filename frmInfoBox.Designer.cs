@@ -74,7 +74,7 @@ namespace VAGSuite
             this.Name = "frmInfoBox";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "VAGEDCSuite information";
+            this.Text = "Informacion VAGEDCSuite";
             this.TopMost = true;
             this.ResumeLayout(false);
 

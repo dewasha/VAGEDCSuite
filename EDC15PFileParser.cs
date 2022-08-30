@@ -149,7 +149,7 @@ namespace VAGSuite
                 }
             }
 
-            newSymbols.SortColumn = "Flash_start_address";
+            newSymbols.SortColumn = "Direccion de comienzo Flash";
             newSymbols.SortingOrder = GenericComparer.SortOrder.Ascending;
             newSymbols.Sort();
             NameKnownMaps(allBytes, newSymbols, newCodeBlocks);
@@ -240,7 +240,7 @@ namespace VAGSuite
                 {
                     if (sh.CodeBlock == 0 && (sh.Varname.StartsWith("2D") || sh.Varname.StartsWith("3D")))
                     {
-                        sh.Subcategory = "Zero codeblock stuff";
+                        sh.Subcategory = "Zero codeblock";
 
                     }
                 }
@@ -268,8 +268,8 @@ namespace VAGSuite
                 {
                     SVBLFound = true;
                     SymbolHelper shsvbl = new SymbolHelper();
-                    shsvbl.Category = "Detected maps";
-                    shsvbl.Subcategory = "Limiters";
+                    shsvbl.Category = "Mapas detectados";
+                    shsvbl.Subcategory = "Limitadores";
                     shsvbl.Flash_start_address = SVBLAddress - 2;
                     //shsvbl.Flash_start_address = SVBLAddress + 16;
 
@@ -277,7 +277,7 @@ namespace VAGSuite
                     int[] testValue = Tools.Instance.readdatafromfileasint(filename, (int)shsvbl.Flash_start_address, 1, EDCFileType.EDC15P);
                     if (testValue[0] == 0xC300) shsvbl.Flash_start_address -= 2;
 
-                    shsvbl.Varname = "SVBL Boost limiter [" + DetermineNumberByFlashBank(shsvbl.Flash_start_address, newCodeBlocks) + "]";
+                    shsvbl.Varname = "SVBL Limitador turbo [" + DetermineNumberByFlashBank(shsvbl.Flash_start_address, newCodeBlocks) + "]";
                     shsvbl.Length = 2;
                     shsvbl.CodeBlock = DetermineCodeBlockByByAddress(shsvbl.Flash_start_address, newCodeBlocks);
                     newSymbols.Add(shsvbl);
@@ -288,10 +288,10 @@ namespace VAGSuite
                         MAPMAFSwitch += 2;
                         SymbolHelper mapmafsh = new SymbolHelper();
                         //mapmafsh.BitMask = 0x0101;
-                        mapmafsh.Category = "Detected maps";
-                        mapmafsh.Subcategory = "Switches";
+                        mapmafsh.Category = "Mapas detectados";
+                        mapmafsh.Subcategory = "Controles";
                         mapmafsh.Flash_start_address = MAPMAFSwitch;
-                        mapmafsh.Varname = "MAP/MAF switch (0 = MAF, 257/0x101 = MAP)" + DetermineNumberByFlashBank(shsvbl.Flash_start_address, newCodeBlocks);
+                        mapmafsh.Varname = "MAP/CAUDA cambio (0 = CAUDA, 257/0x101 = MAP)" + DetermineNumberByFlashBank(shsvbl.Flash_start_address, newCodeBlocks);
                         mapmafsh.Length = 2;
                         mapmafsh.CodeBlock = DetermineCodeBlockByByAddress(mapmafsh.Flash_start_address, newCodeBlocks);
                         newSymbols.Add(mapmafsh);
@@ -321,8 +321,8 @@ namespace VAGSuite
                     //Console.WriteLine("Alternative SVBL " + SVBLAddress.ToString("X8"));
                     SVBLFound = true;
                     SymbolHelper shsvbl = new SymbolHelper();
-                    shsvbl.Category = "Detected maps";
-                    shsvbl.Subcategory = "Limiters";
+                    shsvbl.Category = "Mapas detectados";
+                    shsvbl.Subcategory = "Limitadores";
                     //shsvbl.Flash_start_address = SVBLAddress - 2;
                     shsvbl.Flash_start_address = SVBLAddress + 16;
 
@@ -330,7 +330,7 @@ namespace VAGSuite
                     int[] testValue = Tools.Instance.readdatafromfileasint(filename, (int)shsvbl.Flash_start_address, 1, EDCFileType.EDC15P);
                     if (testValue[0] == 0xC300) shsvbl.Flash_start_address -= 2;
 
-                    shsvbl.Varname = "SVBL Boost limiter [" + DetermineNumberByFlashBank(shsvbl.Flash_start_address, newCodeBlocks) + "]";
+                    shsvbl.Varname = "SVBL Limitador Turbo [" + DetermineNumberByFlashBank(shsvbl.Flash_start_address, newCodeBlocks) + "]";
                     shsvbl.Length = 2;
                     shsvbl.CodeBlock = DetermineCodeBlockByByAddress(shsvbl.Flash_start_address, newCodeBlocks);
                     newSymbols.Add(shsvbl);
@@ -341,10 +341,10 @@ namespace VAGSuite
                         MAPMAFSwitch += 2;
                         SymbolHelper mapmafsh = new SymbolHelper();
                         //mapmafsh.BitMask = 0x0101;
-                        mapmafsh.Category = "Detected maps";
-                        mapmafsh.Subcategory = "Switches";
+                        mapmafsh.Category = "Mapas Detectados";
+                        mapmafsh.Subcategory = "Controles";
                         mapmafsh.Flash_start_address = MAPMAFSwitch;
-                        mapmafsh.Varname = "MAP/MAF switch (0 = MAF, 257/0x101 = MAP)" + DetermineNumberByFlashBank(shsvbl.Flash_start_address, newCodeBlocks);
+                        mapmafsh.Varname = "MAP/CAUDA control (0 = CAUDA, 257/0x101 = MAP)" + DetermineNumberByFlashBank(shsvbl.Flash_start_address, newCodeBlocks);
                         mapmafsh.Length = 2;
                         mapmafsh.CodeBlock = DetermineCodeBlockByByAddress(mapmafsh.Flash_start_address, newCodeBlocks);
                         newSymbols.Add(mapmafsh);
@@ -370,17 +370,17 @@ namespace VAGSuite
                 //sh.Y_axis_descr = st.TranslateAxisID(sh.Y_axis_ID);
                 if (sh.Length == 700) // 25*14
                 {
-                    sh.Category = "Detected maps";
-                    sh.Subcategory = "Misc";
-                    sh.Varname = "Launch control map [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                    sh.Category = "Mapas Detectados";
+                    sh.Subcategory = "Miscelanea";
+                    sh.Varname = "Mapa Launch control [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
                     sh.Y_axis_correction = 0.156250;
                     //sh.Y_axis_correction = 0.000039;
                     sh.Correction = 0.01;
-                    sh.X_axis_descr = "Engine speed (rpm)";
+                    sh.X_axis_descr = "Revoluciones motor (rpm)";
                     //sh.Y_axis_descr = "Ratio vehicle/engine speed";
-                    sh.Y_axis_descr = "Approx. vehicle speed (km/h)";
+                    sh.Y_axis_descr = "Velocidad aprox. (km/h)";
                     //sh.Z_axis_descr = "Output percentage";
-                    sh.Z_axis_descr = "IQ limit";
+                    sh.Z_axis_descr = "Limite IQ";
                     sh.YaxisUnits = "km/h";
                     sh.XaxisUnits = "rpm";
                 }
@@ -390,61 +390,61 @@ namespace VAGSuite
                     if (sh.X_axis_ID / 256 == 0xC5 && sh.Y_axis_ID / 256 == 0xEC)
                     {
 
-                        sh.Category = "Detected maps";
-                        sh.Subcategory = "Fuel";
-                        int injDurCount = GetMapNameCountForCodeBlock("Injector duration", sh.CodeBlock, newSymbols, false);
+                        sh.Category = "Mapas detectados";
+                        sh.Subcategory = "Combustible";
+                        int injDurCount = GetMapNameCountForCodeBlock("Duracion Injector", sh.CodeBlock, newSymbols, false);
                         injDurCount--;
                         //if (injDurCount < 1) injDurCount = 1;
 
-                        sh.Varname = "Injector duration " + injDurCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";// " + sh.Flash_start_address.ToString("X8") + " " + sh.X_axis_ID.ToString("X4") + " " + sh.Y_axis_ID.ToString("X4");
+                        sh.Varname = "Duracion Injector " + injDurCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";// " + sh.Flash_start_address.ToString("X8") + " " + sh.X_axis_ID.ToString("X4") + " " + sh.Y_axis_ID.ToString("X4");
                         sh.Y_axis_correction = 0.01; 
                         sh.Correction = 0.023437;
-                        sh.X_axis_descr = "Engine speed (rpm)";
-                        //sh.Y_axis_descr = "Airflow mg/stroke";
-                        sh.Y_axis_descr = "Requested Quantity mg/stroke";
-                        sh.Z_axis_descr = "Duration (crankshaft degrees)";
+                        sh.X_axis_descr = "Revoluciones motor (rpm)";
+                        //sh.Y_axis_descr = "Flujo mg/rev";
+                        sh.Y_axis_descr = "Cantidad Requerida en mg/rev";
+                        sh.Z_axis_descr = "Duracion (Grados cigueñal)";
                         sh.XaxisUnits = "rpm";
-                        sh.YaxisUnits = "mg/st";
+                        sh.YaxisUnits = "mg/rev";
                     }
                     else if (sh.X_axis_ID / 256 == 0xC4 && sh.Y_axis_ID / 256 == 0xEA)
                     {
 
-                        sh.Category = "Detected maps";
-                        sh.Subcategory = "Fuel";
-                        int injDurCount = GetMapNameCountForCodeBlock("Injector duration", sh.CodeBlock, newSymbols, false);
+                        sh.Category = "Mapas detectados";
+                        sh.Subcategory = "Combustible";
+                        int injDurCount = GetMapNameCountForCodeBlock("Duracion Injector", sh.CodeBlock, newSymbols, false);
                         injDurCount--;
                         //if (injDurCount < 1) injDurCount = 1;
 
-                        sh.Varname = "Injector duration " + injDurCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";// " + sh.Flash_start_address.ToString("X8") + " " + sh.X_axis_ID.ToString("X4") + " " + sh.Y_axis_ID.ToString("X4");
+                        sh.Varname = "Duracion Injector " + injDurCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";// " + sh.Flash_start_address.ToString("X8") + " " + sh.X_axis_ID.ToString("X4") + " " + sh.Y_axis_ID.ToString("X4");
                         sh.Y_axis_correction = 0.01; 
                         sh.Correction = 0.023437;
-                        sh.X_axis_descr = "Engine speed (rpm)";
-                        //sh.Y_axis_descr = "Airflow mg/stroke";
-                        sh.Y_axis_descr = "Requested Quantity mg/stroke";
+                        sh.X_axis_descr = "Revoluciones motor (rpm)";
+                        //sh.Y_axis_descr = "Airflow mg/rev";
+                        sh.Y_axis_descr = "Cantidad Requerida en mg/rev";
 
-                        sh.Z_axis_descr = "Duration (crankshaft degrees)";
+                        sh.Z_axis_descr = "Duracion (grados cigueñal)";
                         sh.XaxisUnits = "rpm";
-                        sh.YaxisUnits = "mg/st";
+                        sh.YaxisUnits = "mg/rev";
                     }
                     else if (sh.X_axis_ID / 256 == 0xC4 && sh.Y_axis_ID / 256 == 0xEC)
                     {
 
-                        sh.Category = "Detected maps";
-                        sh.Subcategory = "Fuel";
-                        int injDurCount = GetMapNameCountForCodeBlock("Injector duration", sh.CodeBlock, newSymbols, false);
+                        sh.Category = "Mapas detectados";
+                        sh.Subcategory = "Combustible";
+                        int injDurCount = GetMapNameCountForCodeBlock("Duracion Injector", sh.CodeBlock, newSymbols, false);
                         injDurCount--;
                         //if (injDurCount < 1) injDurCount = 1;
 
-                        sh.Varname = "Injector duration " + injDurCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";// " + sh.Flash_start_address.ToString("X8") + " " + sh.X_axis_ID.ToString("X4") + " " + sh.Y_axis_ID.ToString("X4");
+                        sh.Varname = "Duracion Injector " + injDurCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";// " + sh.Flash_start_address.ToString("X8") + " " + sh.X_axis_ID.ToString("X4") + " " + sh.Y_axis_ID.ToString("X4");
                         sh.Y_axis_correction = 0.01; 
                         sh.Correction = 0.023437;
-                        sh.X_axis_descr = "Engine speed (rpm)";
-                        //sh.Y_axis_descr = "Airflow mg/stroke";
-                        sh.Y_axis_descr = "Requested Quantity mg/stroke";
+                        sh.X_axis_descr = "Revoluciones motor (rpm)";
+                        //sh.Y_axis_descr = "Flujo mg/rev";
+                        sh.Y_axis_descr = "Cantidad Requerida en mg/rev";
 
-                        sh.Z_axis_descr = "Duration (crankshaft degrees)";
+                        sh.Z_axis_descr = "Duracion (grados cigueñal)";
                         sh.XaxisUnits = "rpm";
-                        sh.YaxisUnits = "mg/st";
+                        sh.YaxisUnits = "mg/rev";
                     }
                 }
                 else if (sh.Length == 480)
@@ -452,42 +452,42 @@ namespace VAGSuite
                     if (sh.X_axis_ID / 256 == 0xC5 && sh.Y_axis_ID / 256 == 0xEC)
                     {
 
-                        sh.Category = "Detected maps";
-                        sh.Subcategory = "Fuel";
-                        int injDurCount = GetMapNameCountForCodeBlock("Injector duration", sh.CodeBlock, newSymbols, false);
+                        sh.Category = "Mapas detectados";
+                        sh.Subcategory = "Combustible";
+                        int injDurCount = GetMapNameCountForCodeBlock("Duracion Injector", sh.CodeBlock, newSymbols, false);
                         injDurCount--;
                         //if (injDurCount < 1) injDurCount = 1;
                         //IAT, ECT or Fuel temp?
 
                         double tempRange = GetTemperatureDurRange(injDurCount - 1);
-                        sh.Varname = "Injector duration " + injDurCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";// " + sh.Flash_start_address.ToString("X8") + " " + sh.X_axis_ID.ToString("X4") + " " + sh.Y_axis_ID.ToString("X4");
+                        sh.Varname = "Duracion Injector " + injDurCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";// " + sh.Flash_start_address.ToString("X8") + " " + sh.X_axis_ID.ToString("X4") + " " + sh.Y_axis_ID.ToString("X4");
                         sh.Y_axis_correction = 0.01; 
                         sh.Correction = 0.023437;
-                        sh.X_axis_descr = "Engine speed (rpm)";
-                        sh.Y_axis_descr = "Requested Quantity mg/stroke";
-                        sh.Z_axis_descr = "Duration (crankshaft degrees)";
+                        sh.X_axis_descr = "Revoluciones motor (rpm)";
+                        sh.Y_axis_descr = "Cantidad Requerida en mg/rev";
+                        sh.Z_axis_descr = "Duracion (grados cigueñal)";
                         sh.XaxisUnits = "rpm";
-                        sh.YaxisUnits = "mg/st";
+                        sh.YaxisUnits = "mg/rev";
                     }
                     else if (sh.X_axis_ID / 256 == 0xC4 && sh.Y_axis_ID / 256 == 0xEA)
                     {
 
-                        sh.Category = "Detected maps";
-                        sh.Subcategory = "Fuel";
-                        int injDurCount = GetMapNameCountForCodeBlock("Injector duration", sh.CodeBlock, newSymbols, false);
+                        sh.Category = "Mapas detectados";
+                        sh.Subcategory = "Combustible";
+                        int injDurCount = GetMapNameCountForCodeBlock("Duracion Injector", sh.CodeBlock, newSymbols, false);
                         injDurCount--;
                         //if (injDurCount < 1) injDurCount = 1;
                         //IAT, ECT or Fuel temp?
 
                         double tempRange = GetTemperatureDurRange(injDurCount - 1);
-                        sh.Varname = "Injector duration " + injDurCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";// " + sh.Flash_start_address.ToString("X8") + " " + sh.X_axis_ID.ToString("X4") + " " + sh.Y_axis_ID.ToString("X4");
+                        sh.Varname = "Injector duracion " + injDurCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";// " + sh.Flash_start_address.ToString("X8") + " " + sh.X_axis_ID.ToString("X4") + " " + sh.Y_axis_ID.ToString("X4");
                         sh.Y_axis_correction = 0.01;
                         sh.Correction = 0.023437;
-                        sh.X_axis_descr = "Engine speed (rpm)";
-                        sh.Y_axis_descr = "Requested Quantity mg/stroke";
-                        sh.Z_axis_descr = "Duration (crankshaft degrees)";
+                        sh.X_axis_descr = "Revoluciones motor (rpm)";
+                        sh.Y_axis_descr = "Cantidad Requerida en mg/rev";
+                        sh.Z_axis_descr = "Duracion (grados cigueñal)";
                         sh.XaxisUnits = "rpm";
-                        sh.YaxisUnits = "mg/st";
+                        sh.YaxisUnits = "mg/rev";
                     }
 
                 }
@@ -496,43 +496,43 @@ namespace VAGSuite
                     if (sh.MapSelector.NumRepeats == 10)
                     {
                         // SOI maps detected
-                        sh.Category = "Detected maps";
-                        sh.Subcategory = "Fuel";
-                        int injDurCount = GetMapNameCountForCodeBlock("Start of injection (SOI)", sh.CodeBlock, newSymbols, false);
+                        sh.Category = "Mapas detectados";
+                        sh.Subcategory = "Combustible";
+                        int injDurCount = GetMapNameCountForCodeBlock("Inicio de inyeccion (SOI)", sh.CodeBlock, newSymbols, false);
                         
                         //based on coolant temperature
                         double tempRange = GetTemperatureSOIRange(sh.MapSelector, injDurCount - 1);
-                        sh.Varname = "Start of injection (SOI) " + tempRange.ToString() + " °C [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";// " + sh.Flash_start_address.ToString("X8") + " " + sh.X_axis_ID.ToString("X4") + " " + sh.Y_axis_ID.ToString("X4");
+                        sh.Varname = "Inicio inyeccion (SOI) " + tempRange.ToString() + " °C [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";// " + sh.Flash_start_address.ToString("X8") + " " + sh.X_axis_ID.ToString("X4") + " " + sh.Y_axis_ID.ToString("X4");
 
                         sh.Correction = -0.023437;
                         sh.Offset = 78;
 
-                        sh.Y_axis_descr = "Engine speed (rpm)";
+                        sh.Y_axis_descr = "Revoluciones motor (rpm)";
                         sh.YaxisUnits = "rpm";
                         sh.X_axis_correction = 0.01; // TODODONE : Check for x or y
-                        sh.XaxisUnits = "mg/st";
+                        sh.XaxisUnits = "mg/rev";
 
-                        sh.X_axis_descr = "IQ (mg/stroke)";
-                        sh.Z_axis_descr = "Start position (degrees BTDC)";
+                        sh.X_axis_descr = "IQ (mg/rev)";
+                        sh.Z_axis_descr = "Posicion de inicio (grados antes PMS)";
                     }
                     else if (sh.X_axis_ID / 256 == 0xC5 && sh.Y_axis_ID / 256 == 0xEC)
                     {
-                        sh.Category = "Detected maps";
-                        sh.Subcategory = "Fuel";
-                        int injDurCount = GetMapNameCountForCodeBlock("Injector duration", sh.CodeBlock, newSymbols, false);
+                        sh.Category = "Mapas detectados";
+                        sh.Subcategory = "Combustible";
+                        int injDurCount = GetMapNameCountForCodeBlock("Duracion injector", sh.CodeBlock, newSymbols, false);
                         injDurCount--;
                         //if (injDurCount < 1) injDurCount = 1;
 
-                        sh.Varname = "Injector duration " + injDurCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                        sh.Varname = "Duracion Injector " + injDurCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
                         sh.Y_axis_correction = 0.01; 
                         sh.Correction = 0.023437;
-                        sh.X_axis_descr = "Engine speed (rpm)";
-                        //sh.Y_axis_descr = "Airflow mg/stroke";
-                        sh.Y_axis_descr = "Requested Quantity mg/stroke";
+                        sh.X_axis_descr = "Revoluciones motor (rpm)";
+                        //sh.Y_axis_descr = "Flujo mg/rev";
+                        sh.Y_axis_descr = "Cantidad Requerida en mg/rev";
 
-                        sh.Z_axis_descr = "Duration (crankshaft degrees)";
+                        sh.Z_axis_descr = "Duracion (grados cigueñal)";
                         sh.XaxisUnits = "rpm";
-                        sh.YaxisUnits = "mg/st";
+                        sh.YaxisUnits = "mg/rev";
 
                     }
                 }
@@ -542,11 +542,11 @@ namespace VAGSuite
                     if (sh.X_axis_ID / 256 == 0xF9 && sh.Y_axis_ID / 256 == 0xDA)
                     {
                         // this is IQ by MAF limiter!
-                        sh.Category = "Detected maps";
-                        sh.Subcategory = "Limiters";
-                        int smokeCount = GetMapNameCountForCodeBlock("Smoke limiter", sh.CodeBlock, newSymbols, false);
-                        //sh.Varname = "Smoke limiter " + smokeCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
-                        sh.Varname = "Smoke limiter [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                        sh.Category = "Mapas detectados";
+                        sh.Subcategory = "Limitadores";
+                        int smokeCount = GetMapNameCountForCodeBlock("Limitador de humo", sh.CodeBlock, newSymbols, false);
+                        //sh.Varname = "Limitador de humo " + smokeCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                        sh.Varname = "Limitador de humo [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
                         if (sh.MapSelector != null)
                         {
                             if (sh.MapSelector.MapIndexes != null)
@@ -556,133 +556,133 @@ namespace VAGSuite
                                     if (!MapSelectorIndexEmpty(sh))
                                     {
                                         double tempRange = GetTemperatureSOIRange(sh.MapSelector, smokeCount - 1);
-                                        sh.Varname = "Smoke limiter " + tempRange.ToString() + " °C [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";// " + sh.Flash_start_address.ToString("X8") + " " + sh.X_axis_ID.ToString("X4") + " " + sh.Y_axis_ID.ToString("X4");
+                                        sh.Varname = "Limitador de humo " + tempRange.ToString() + " °C [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";// " + sh.Flash_start_address.ToString("X8") + " " + sh.X_axis_ID.ToString("X4") + " " + sh.Y_axis_ID.ToString("X4");
                                     }
                                 }
                             }
                         }
-                        sh.Z_axis_descr = "Maximum IQ (mg)";
-                        sh.Y_axis_descr = "Engine speed (rpm)";
-                        sh.X_axis_descr = "Airflow mg/stroke";
+                        sh.Z_axis_descr = "Maxima IQ (mg)";
+                        sh.Y_axis_descr = "Revoluciones motor (rpm)";
+                        sh.X_axis_descr = "Flujo de aire mg/rev";
                         sh.Correction = 0.01;
                         sh.X_axis_correction = 0.1; 
                         sh.YaxisUnits = "rpm";
-                        sh.XaxisUnits = "mg/st";
+                        sh.XaxisUnits = "mg/rev";
 
                     }
                     else if (sh.X_axis_ID / 256 == 0xEC && sh.Y_axis_ID / 256 == 0xDA)
                     {
-                        sh.Category = "Detected maps";
-                        sh.Subcategory = "Limiters";
+                        sh.Category = "Mapas detectados";
+                        sh.Subcategory = "Limitadores";
                         // if x axis = upto 3000 -> MAP limit, not MAF limit
                         if (GetMaxAxisValue(allBytes, sh, MapViewerEx.AxisIdent.Y_Axis) < 4000)
                         {
-                            sh.Category = "Detected maps";
-                            sh.Subcategory = "Limiters";
-                            sh.Varname = "IQ by MAP limiter [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";// " + sh.Flash_start_address.ToString("X8") +" " + sh.X_axis_ID.ToString("X4") + " " + sh.Y_axis_ID.ToString("X4");
+                            sh.Category = "Mapas detectados";
+                            sh.Subcategory = "Limitadores";
+                            sh.Varname = "IQ por limitador MAP [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";// " + sh.Flash_start_address.ToString("X8") +" " + sh.X_axis_ID.ToString("X4") + " " + sh.Y_axis_ID.ToString("X4");
                             sh.Correction = 0.01;
-                            sh.X_axis_descr = "Boost pressure";
-                            sh.Y_axis_descr = "Engine speed (rpm)";
-                            sh.Z_axis_descr = "Maximum IQ (mg)";
+                            sh.X_axis_descr = "Presion Turbo";
+                            sh.Y_axis_descr = "Revoluciones motor (rpm)";
+                            sh.Z_axis_descr = "Maxima IQ (mg)";
                             sh.YaxisUnits = "rpm";
                             sh.XaxisUnits = "mbar";
 
                         }
                         else
                         {
-                            int iqMAFLimCount = GetMapNameCountForCodeBlock("IQ by MAF limiter", sh.CodeBlock, newSymbols, false);
-                            sh.Varname = "IQ by MAF limiter " + iqMAFLimCount.ToString() + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                            int iqMAFLimCount = GetMapNameCountForCodeBlock("IQ por limitador MAF", sh.CodeBlock, newSymbols, false);
+                            sh.Varname = "IQ por limitador MAF " + iqMAFLimCount.ToString() + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
                             //sh.Varname = "IQ by MAF limiter [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
-                            sh.Z_axis_descr = "Maximum IQ (mg)";
+                            sh.Z_axis_descr = "Maxima IQ (mg)";
                             sh.Correction = 0.01;
                             sh.X_axis_correction = 0.1; 
-                            sh.XaxisUnits = "mg/st";
-                            sh.X_axis_descr = "Airflow mg/stroke";
-                            sh.Y_axis_descr = "Engine speed (rpm)";
+                            sh.XaxisUnits = "mg/rev";
+                            sh.X_axis_descr = "Flujo de aire mg/rev";
+                            sh.Y_axis_descr = "Revoluciones motor (rpm)";
                             sh.YaxisUnits = "rpm";
                         }
 
                     }
                     else if (sh.X_axis_ID / 256 == 0xEC && sh.Y_axis_ID / 256 == 0xEA)
                     {
-                        sh.Category = "Detected maps";
+                        sh.Category = "Mapas detectados";
                         sh.Subcategory = "Turbo";
-                        sh.Varname = "N75 duty cycle [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
-                        sh.Z_axis_descr = "Duty cycle %";
+                        sh.Varname = "Ciclo funcionamiento N75 [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                        sh.Z_axis_descr = "Ciclo funcionamiento %";
                         sh.Correction = -0.01;
                         sh.Offset = 100;
                         //sh.Correction = 0.01;
                         sh.X_axis_correction = 0.01; 
-                        sh.X_axis_descr = "IQ (mg/stroke)";
-                        sh.Y_axis_descr = "Engine speed (rpm)";
+                        sh.X_axis_descr = "IQ (mg/rev)";
+                        sh.Y_axis_descr = "Revoluciones motor (rpm)";
                         sh.YaxisUnits = "rpm";
-                        sh.XaxisUnits = "mg/st";
+                        sh.XaxisUnits = "mg/rev";
                     }
                     /*else if (strAddrTest.EndsWith("116"))
                     {
-                        sh.Category = "Detected maps";
-                        sh.Subcategory = "Misc";
+                        sh.Category = "Mapas detectados";
+                        sh.Subcategory = "Miscelanea";
                         int egrCount = GetMapNameCountForCodeBlock("EGR", sh.CodeBlock, newSymbols, false);
                         sh.Varname = "EGR " + egrCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
                         sh.Correction = 0.1;
                         sh.X_axis_correction = 0.01;
-                        sh.Z_axis_descr = "Mass Air Flow (mg/stroke)";
-                        sh.X_axis_descr = "IQ (mg/stroke)";
-                        sh.Y_axis_descr = "Engine speed (rpm)";
+                        sh.Z_axis_descr = "Caudalimetro (mg/rev)";
+                        sh.X_axis_descr = "IQ (mg/)";
+                        sh.Y_axis_descr = "Revoluciones motor (rpm)";
                         sh.YaxisUnits = "rpm";
-                        sh.XaxisUnits = "mg/st";
+                        sh.XaxisUnits = "mg/rev";
                     }*/
                     else if (sh.X_axis_ID / 256 == 0xEC && sh.Y_axis_ID == 0xE9D4)
                     {
-                        // x axis should start with 0!
-                        sh.Category = "Detected maps";
+                        // x axis should start with 0!r
+                        sh.Category = "Mapas detectados";
                         sh.Subcategory = "Turbo";
-                        sh.Varname = "N75 duty cycle [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
-                        sh.Z_axis_descr = "Duty cycle %";
+                        sh.Varname = "Ciclo funcionamiento N75 [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                        sh.Z_axis_descr = "Ciclo funcionamiento %";
                         sh.Correction = -0.01;
                         sh.Offset = 100;
                         //sh.Correction = 0.01;
                         sh.X_axis_correction = 0.01; 
-                        sh.X_axis_descr = "IQ (mg/stroke)";
-                        sh.Y_axis_descr = "Engine speed (rpm)";
+                        sh.X_axis_descr = "IQ (mg/rev)";
+                        sh.Y_axis_descr = "Revoluciones motor (rpm)";
                         sh.YaxisUnits = "rpm";
-                        sh.XaxisUnits = "mg/st";
+                        sh.XaxisUnits = "mg/rev";
                     }
                     else if ((sh.X_axis_ID / 256 == 0xEC) && (sh.Y_axis_ID / 256 == 0xC0 || sh.Y_axis_ID / 256 == 0xE9))
                     {
                         // x axis should start with 0!
                         if (allBytes[sh.Y_axis_address] == 0 && allBytes[sh.Y_axis_address + 1] == 0)
                         {
-                            sh.Category = "Detected maps";
-                            sh.Subcategory = "Misc";
+                            sh.Category = "Mapas detectados";
+                            sh.Subcategory = "Miscelanea";
                             int egrCount = GetMapNameCountForCodeBlock("EGR", sh.CodeBlock, newSymbols, false);
                             sh.Varname = "EGR " + egrCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
                             sh.Correction = 0.1;
                             sh.X_axis_correction = 0.01;
-                            sh.Z_axis_descr = "Mass Air Flow (mg/stroke)";
-                            sh.X_axis_descr = "IQ (mg/stroke)";
-                            sh.Y_axis_descr = "Engine speed (rpm)";
+                            sh.Z_axis_descr = "Flujo de aire (mg/rev)";
+                            sh.X_axis_descr = "IQ (mg/rev)";
+                            sh.Y_axis_descr = "Revoluciones motor (rpm)";
                             sh.YaxisUnits = "rpm";
-                            sh.XaxisUnits = "mg/st";
+                            sh.XaxisUnits = "mg/rev";
                         }
                     }
                     else if (sh.X_axis_ID / 256 == 0xEA && sh.Y_axis_ID / 256 == 0xE9)
                     {
-                        sh.Category = "Detected maps";
-                        sh.Subcategory = "Fuel";
-                        int injDurCount = GetMapNameCountForCodeBlock("Start of injection (SOI)", sh.CodeBlock, newSymbols, false);
+                        sh.Category = "Mapas detectados";
+                        sh.Subcategory = "Combustible";
+                        int injDurCount = GetMapNameCountForCodeBlock("Inicio inyeccion (SOI)", sh.CodeBlock, newSymbols, false);
                         //IAT, ECT or Fuel temp?
                         double tempRange = GetTemperatureSOIRange(sh.MapSelector, injDurCount - 1);
-                        sh.Varname = "Start of injection (SOI) " + tempRange.ToString() + " °C [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";// " + sh.Flash_start_address.ToString("X8") + " " + sh.X_axis_ID.ToString("X4") + " " + sh.Y_axis_ID.ToString("X4");
+                        sh.Varname = "Inicio de inyeccion (SOI) " + tempRange.ToString() + " °C [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";// " + sh.Flash_start_address.ToString("X8") + " " + sh.X_axis_ID.ToString("X4") + " " + sh.Y_axis_ID.ToString("X4");
                         sh.Correction = -0.023437;
                         sh.Offset = 78;
 
-                        sh.Y_axis_descr = "Engine speed (rpm)";
+                        sh.Y_axis_descr = "Revoluciones motor (rpm)";
                         sh.YaxisUnits = "rpm";
                         sh.X_axis_correction = 0.01; // TODODONE : Check for x or y
-                        sh.XaxisUnits = "mg/st";
+                        sh.XaxisUnits = "mg/rev";
 
-                        sh.Z_axis_descr = "Start position (degrees BTDC)";
+                        sh.Z_axis_descr = "Posicion de inicio (grados antes PMS)";
                     }
                     else if (sh.X_axis_ID / 256 == 0xEA && sh.Y_axis_ID / 256 == 0xE8)
                     {
@@ -690,34 +690,34 @@ namespace VAGSuite
                         if (allBytes[sh.X_axis_address] == 0 && allBytes[sh.X_axis_address + 1] == 0)
                         {
                             // EGR
-                            sh.Category = "Detected maps";
-                            sh.Subcategory = "Misc";
+                            sh.Category = "Mapas detectados";
+                            sh.Subcategory = "Miscelanea";
                             int egrCount = GetMapNameCountForCodeBlock("EGR", sh.CodeBlock, newSymbols, false);
                             sh.Varname = "EGR " + egrCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
                             sh.Correction = 0.1;
                             sh.X_axis_correction = 0.01;
-                            sh.Z_axis_descr = "Mass Air Flow (mg/stroke)";
-                            sh.X_axis_descr = "IQ (mg/stroke)";
-                            sh.Y_axis_descr = "Engine speed (rpm)";
+                            sh.Z_axis_descr = "Flujo de aire (mg/rev)";
+                            sh.X_axis_descr = "IQ (mg/rev)";
+                            sh.Y_axis_descr = "Revoluciones motor (rpm)";
                             sh.YaxisUnits = "rpm";
-                            sh.XaxisUnits = "mg/st";
+                            sh.XaxisUnits = "mg/rev";
 
                         }
                         else
                         {
                             //N75
-                            sh.Category = "Detected maps";
+                            sh.Category = "Mapas detectados";
                             sh.Subcategory = "Turbo";
-                            sh.Varname = "N75 duty cycle [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
-                            sh.Z_axis_descr = "Duty cycle %";
+                            sh.Varname = "Ciclo funcionamiento N75 [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                            sh.Z_axis_descr = "Ciclo funcionamiento %";
                             sh.Correction = -0.01;
                             sh.Offset = 100;
                             //sh.Correction = 0.01;
                             sh.X_axis_correction = 0.01; 
-                            sh.X_axis_descr = "IQ (mg/stroke)";
-                            sh.Y_axis_descr = "Engine speed (rpm)";
+                            sh.X_axis_descr = "IQ (mg/rev)";
+                            sh.Y_axis_descr = "Revoluciones motor (rpm)";
                             sh.YaxisUnits = "rpm";
-                            sh.XaxisUnits = "mg/st";
+                            sh.XaxisUnits = "mg/rev";
 
                         }
                     }
@@ -726,17 +726,17 @@ namespace VAGSuite
                         // x axis should start with 0!
                         if (allBytes[sh.Y_axis_address] == 0 && allBytes[sh.Y_axis_address + 1] == 0)
                         {
-                            sh.Category = "Detected maps";
-                            sh.Subcategory = "Misc";
+                            sh.Category = "Mapas detectados";
+                            sh.Subcategory = "Miscelanea";
                             int egrCount = GetMapNameCountForCodeBlock("EGR", sh.CodeBlock, newSymbols, false);
                             sh.Varname = "EGR " + egrCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
                             sh.Correction = 0.1;
                             sh.X_axis_correction = 0.01;
-                            sh.Z_axis_descr = "Mass Air Flow (mg/stroke)";
-                            sh.X_axis_descr = "IQ (mg/stroke)";
-                            sh.Y_axis_descr = "Engine speed (rpm)";
+                            sh.Z_axis_descr = "Mass Air Flow (mg/rev)";
+                            sh.X_axis_descr = "IQ (mg/rev)";
+                            sh.Y_axis_descr = "Revoluciones motor (rpm)";
                             sh.YaxisUnits = "rpm";
-                            sh.XaxisUnits = "mg/st";
+                            sh.XaxisUnits = "mg/rev";
                         }
                     }*/
                 }
@@ -745,47 +745,47 @@ namespace VAGSuite
                     // 15x12 = inj dur limiter on R3 files
                     if (sh.X_axis_length == 13 && sh.Y_axis_length == 15)
                     {
-                           /* sh.Category = "Detected maps";
-                            sh.Subcategory = "Limiters";
+                           /* sh.Category = "Mapas detectados";
+                            sh.Subcategory = "Limitadores";
                             sh.Varname = "Injection duration limiter B [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";// " + sh.Flash_start_address.ToString("X8") + " " + sh.X_axis_ID.ToString("X4") + " " + sh.Y_axis_ID.ToString("X4");
                             sh.Correction = 0.023438;
                             sh.Y_axis_correction = 0.01;
                             sh.Y_axis_descr = "IQ (mg/stroke)";
                             sh.Z_axis_descr = "Max. degrees";
-                            sh.X_axis_descr = "Engine speed (rpm)";
+                            sh.X_axis_descr = "Revoluciones motor (rpm)";
                             sh.XaxisUnits = "rpm";
-                            sh.YaxisUnits = "mg/st";*/
-                            sh.Category = "Detected maps";
-                            sh.Subcategory = "Fuel";
-                            int injDurCount = GetMapNameCountForCodeBlock("Injector duration", sh.CodeBlock, newSymbols, false);
+                            sh.YaxisUnits = "mg/rev";*/
+                            sh.Category = "Mapas detectados";
+                            sh.Subcategory = "Combustible";
+                            int injDurCount = GetMapNameCountForCodeBlock("Injector duracion", sh.CodeBlock, newSymbols, false);
                             injDurCount--;
                             //if (injDurCount < 1) injDurCount = 1;
 
-                            sh.Varname = "Injector duration " + injDurCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                            sh.Varname = "Duracion Injector " + injDurCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
                             sh.Y_axis_correction = 0.01; 
                             sh.Correction = 0.023437;
-                            sh.X_axis_descr = "Engine speed (rpm)";
-                            //sh.Y_axis_descr = "Airflow mg/stroke";
-                            sh.Y_axis_descr = "Requested Quantity mg/stroke";
+                            sh.X_axis_descr = "Revoluciones motor (rpm)";
+                            //sh.Y_axis_descr = "Flujo mg/rev";
+                            sh.Y_axis_descr = "Cantidad Requerida en mg/rev";
 
-                            sh.Z_axis_descr = "Duration (crankshaft degrees)";
+                            sh.Z_axis_descr = "Duracion (grados cigueñal)";
                             sh.XaxisUnits = "rpm";
-                            sh.YaxisUnits = "mg/st";                      
+                            sh.YaxisUnits = "mg/rev";                      
                     }
 
                     else if ((sh.X_axis_ID / 256 == 0xEC) && (sh.Y_axis_ID / 256 == 0xC0))
                     {
-                        sh.Category = "Detected maps";
-                        sh.Subcategory = "Misc";
+                        sh.Category = "Mapas detectados";
+                        sh.Subcategory = "Miscelanea";
                         int egrCount = GetMapNameCountForCodeBlock("EGR", sh.CodeBlock, newSymbols, false);
                         sh.Varname = "EGR " + egrCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
                         sh.Correction = 0.1;
                         sh.X_axis_correction = 0.01;
-                        sh.Z_axis_descr = "Mass Air Flow (mg/stroke)";
-                        sh.X_axis_descr = "IQ (mg/stroke)";
-                        sh.Y_axis_descr = "Engine speed (rpm)";
+                        sh.Z_axis_descr = "Flujo de aire (mg/rev)";
+                        sh.X_axis_descr = "IQ (mg/rev)";
+                        sh.Y_axis_descr = "Revoluciones motor (rpm)";
                         sh.YaxisUnits = "rpm";
-                        sh.XaxisUnits = "mg/st";
+                        sh.XaxisUnits = "mg/rev";
                     }
 
                 }
@@ -793,27 +793,27 @@ namespace VAGSuite
                 {
                     if (sh.X_axis_length == 12 && sh.Y_axis_length == 16)
                     {
-                        sh.Category = "Detected maps";
-                        sh.Subcategory = "Misc";
-                        sh.Varname = "Inverse driver wish [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                        sh.Category = "Mapas detectados";
+                        sh.Subcategory = "Miscelanea";
+                        sh.Varname = "Deseo del conductor inverso [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
                         sh.Correction = 0.01;
                         sh.X_axis_correction = 0.01;
-                        sh.Z_axis_descr = "Throttle  position";
-                        sh.X_axis_descr = "IQ (mg/stroke)";
-                        sh.Y_axis_descr = "Engine speed (rpm)";
+                        sh.Z_axis_descr = "Posicion pedal";
+                        sh.X_axis_descr = "IQ (mg/rev)";
+                        sh.Y_axis_descr = "Revoluciones motor (rpm)";
                         //sh.Z_axis_descr = "Requested IQ (mg)";
                         sh.YaxisUnits = "rpm";
-                        sh.XaxisUnits = "mg/st";
+                        sh.XaxisUnits = "mg/rev";
                     }
                     else if (sh.X_axis_length == 16 && sh.Y_axis_length == 12)
                     {
                         if ((sh.X_axis_ID / 256 == 0xEA) && (sh.Y_axis_ID / 256 == 0xDA))
                         {
-                            sh.Category = "Detected maps";
-                            sh.Subcategory = "Limiters";
-                            int smokeCount = GetMapNameCountForCodeBlock("Smoke limiter", sh.CodeBlock, newSymbols, false);
+                            sh.Category = "Mapas detectados";
+                            sh.Subcategory = "Limitadores";
+                            int smokeCount = GetMapNameCountForCodeBlock("Limitador de humo", sh.CodeBlock, newSymbols, false);
                             //sh.Varname = "Smoke limiter " + smokeCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
-                            sh.Varname = "Smoke limiter [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                            sh.Varname = "Limitador de humo [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
                             if (sh.MapSelector != null)
                             {
                                 if (sh.MapSelector.MapIndexes != null)
@@ -823,32 +823,32 @@ namespace VAGSuite
                                         if (!MapSelectorIndexEmpty(sh))
                                         {
                                             double tempRange = GetTemperatureSOIRange(sh.MapSelector, smokeCount - 1);
-                                            sh.Varname = "Smoke limiter " + tempRange.ToString() + " °C [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";// " + sh.Flash_start_address.ToString("X8") + " " + sh.X_axis_ID.ToString("X4") + " " + sh.Y_axis_ID.ToString("X4");
+                                            sh.Varname = "Limitador de humo " + tempRange.ToString() + " °C [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";// " + sh.Flash_start_address.ToString("X8") + " " + sh.X_axis_ID.ToString("X4") + " " + sh.Y_axis_ID.ToString("X4");
                                         }
                                     }
                                 }
                             }
-                            sh.Z_axis_descr = "Maximum IQ (mg)";
-                            sh.Y_axis_descr = "Engine speed (rpm)";
-                            sh.X_axis_descr = "Airflow mg/stroke";
+                            sh.Z_axis_descr = "Maximo IQ (mg)";
+                            sh.Y_axis_descr = "Revoluciones motor (rpm)";
+                            sh.X_axis_descr = "Flujo mg/rev";
                             sh.Correction = 0.01;
                             sh.X_axis_correction = 0.1; 
                             sh.YaxisUnits = "rpm";
-                            sh.XaxisUnits = "mg/st";
+                            sh.XaxisUnits = "mg/rev";
                         }
                         else if ((sh.X_axis_ID / 256 == 0xEC) && (sh.Y_axis_ID / 256 == 0xC0))
                         {
-                            sh.Category = "Detected maps";
-                            sh.Subcategory = "Misc";
+                            sh.Category = "Mapas detectados";
+                            sh.Subcategory = "Miscelanea";
                             int egrCount = GetMapNameCountForCodeBlock("EGR", sh.CodeBlock, newSymbols, false);
                             sh.Varname = "EGR " + egrCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
                             sh.Correction = 0.1;
                             sh.X_axis_correction = 0.01;
-                            sh.Z_axis_descr = "Mass Air Flow (mg/stroke)";
-                            sh.X_axis_descr = "IQ (mg/stroke)";
-                            sh.Y_axis_descr = "Engine speed (rpm)";
+                            sh.Z_axis_descr = "Flujo de aire (mg/rev)";
+                            sh.X_axis_descr = "IQ (mg/rev)";
+                            sh.Y_axis_descr = "Revoluciones motor (rpm)";
                             sh.YaxisUnits = "rpm";
-                            sh.XaxisUnits = "mg/st";
+                            sh.XaxisUnits = "mg/rev";
                         }
                     }
                 }
@@ -857,22 +857,22 @@ namespace VAGSuite
                     // 15x12 = inj dur limiter on R3 files
                     if (sh.X_axis_length == 12 && sh.Y_axis_length == 15)
                     {
-                            sh.Category = "Detected maps";
-                            sh.Subcategory = "Fuel";
-                            int injDurCount = GetMapNameCountForCodeBlock("Injector duration", sh.CodeBlock, newSymbols, false);
+                            sh.Category = "Mapas detectados";
+                            sh.Subcategory = "Combustible";
+                            int injDurCount = GetMapNameCountForCodeBlock("Duracion injector", sh.CodeBlock, newSymbols, false);
                             injDurCount--;
                             //if (injDurCount < 1) injDurCount = 1;
 
-                            sh.Varname = "Injector duration " + injDurCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                            sh.Varname = "Duracion Injector " + injDurCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
                             sh.Y_axis_correction = 0.01; 
                             sh.Correction = 0.023437;
-                            sh.X_axis_descr = "Engine speed (rpm)";
-                            //sh.Y_axis_descr = "Airflow mg/stroke";
-                            sh.Y_axis_descr = "Requested Quantity mg/stroke";
+                            sh.X_axis_descr = "Revoluciones motor (rpm)";
+                            //sh.Y_axis_descr = "Flujo mg/rev";
+                            sh.Y_axis_descr = "Cantidad Requerida en mg/rev";
 
-                            sh.Z_axis_descr = "Duration (crankshaft degrees)";
+                            sh.Z_axis_descr = "Duracion (grados cigueñal)";
                             sh.XaxisUnits = "rpm";
-                            sh.YaxisUnits = "mg/st";                   
+                            sh.YaxisUnits = "mg/rev";                   
                     }
                     
                 }
@@ -882,70 +882,70 @@ namespace VAGSuite
                     {
                         if (sh.X_axis_ID / 256 == 0xEC && sh.Y_axis_ID / 256 == 0xC0)
                         {
-                            sh.Category = "Detected maps";
-                            sh.Subcategory = "Misc";
+                            sh.Category = "Mapas detectados";
+                            sh.Subcategory = "Miscelanea";
                             int egrCount = GetMapNameCountForCodeBlock("EGR", sh.CodeBlock, newSymbols, false);
                             sh.Varname = "EGR " + egrCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
                             sh.Correction = 0.1;
                             sh.X_axis_correction = 0.01;
-                            sh.Z_axis_descr = "Mass Air Flow (mg/stroke)";
-                            sh.X_axis_descr = "IQ (mg/stroke)";
-                            sh.Y_axis_descr = "Engine speed (rpm)";
+                            sh.Z_axis_descr = "Flujo de aire (mg/rev)";
+                            sh.X_axis_descr = "IQ (mg/rev)";
+                            sh.Y_axis_descr = "Revoluciones motor (rpm)";
                             sh.YaxisUnits = "rpm";
-                            sh.XaxisUnits = "mg/st";
+                            sh.XaxisUnits = "mg/rev";
                         }
                         else if (sh.X_axis_ID / 256 == 0xEC && sh.Y_axis_ID / 256 == 0xEA)
                         {
-                            sh.Category = "Detected maps";
+                            sh.Category = "Mapas detectados";
                             sh.Subcategory = "Turbo";
-                            sh.Varname = "N75 duty cycle [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
-                            sh.Z_axis_descr = "Duty cycle %";
+                            sh.Varname = "Ciclo funcionamiento N75 [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                            sh.Z_axis_descr = "Ciclo funcionamiento %";
                             sh.Correction = -0.01;
                             sh.Offset = 100;
                             sh.X_axis_correction = 0.01; 
-                            sh.X_axis_descr = "IQ (mg/stroke)";
-                            sh.Y_axis_descr = "Engine speed (rpm)";
+                            sh.X_axis_descr = "IQ (mg/rev)";
+                            sh.Y_axis_descr = "Revoluciones motor (rpm)";
                             sh.YaxisUnits = "rpm";
-                            sh.XaxisUnits = "mg/st";
+                            sh.XaxisUnits = "mg/rev";
                         }
                     }
                 }
                 else if (sh.Length == 320)
                 {
-                    sh.Category = "Probable maps";
+                    sh.Category = "Mapas Probables";
                     sh.Subcategory = "Turbo";
-                    sh.Varname = "Boost map [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "] " + sh.Flash_start_address.ToString("X8") + " " + sh.X_axis_ID.ToString("X4") + " " + sh.Y_axis_ID.ToString("X4");
+                    sh.Varname = "Mapa Presion [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "] " + sh.Flash_start_address.ToString("X8") + " " + sh.X_axis_ID.ToString("X4") + " " + sh.Y_axis_ID.ToString("X4");
                     if (sh.X_axis_ID / 256 == 0xEC && sh.Y_axis_ID / 256 == 0xC0)
                     {
-                        sh.Category = "Detected maps";
-                        sh.Varname = "Boost target map [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";// " + sh.Flash_start_address.ToString("X8") + " " + sh.X_axis_ID.ToString("X4") + " " + sh.Y_axis_ID.ToString("X4");
+                        sh.Category = "Mapas detectados";
+                        sh.Varname = "Mapa presion objetivo [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";// " + sh.Flash_start_address.ToString("X8") + " " + sh.X_axis_ID.ToString("X4") + " " + sh.Y_axis_ID.ToString("X4");
                         sh.X_axis_correction = 0.01;
-                        sh.X_axis_descr = "IQ (mg/stroke)";
-                        sh.Y_axis_descr = "Engine speed (rpm)";
-                        sh.Z_axis_descr = "Boost target (mbar)";
+                        sh.X_axis_descr = "IQ (mg/rev)";
+                        sh.Y_axis_descr = "Revoluciones motor (rpm)";
+                        sh.Z_axis_descr = "Presion objetivo (mbar)";
                         sh.YaxisUnits = "rpm";
-                        sh.XaxisUnits = "mg/st";
+                        sh.XaxisUnits = "mg/rev";
                     }
                     else if (sh.X_axis_ID / 256 == 0xEA && sh.Y_axis_ID / 256 == 0xC0)
                     {
-                        sh.Category = "Detected maps";
-                        sh.Varname = "Boost target map [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";// " + sh.Flash_start_address.ToString("X8") + " " + sh.X_axis_ID.ToString("X4") + " " + sh.Y_axis_ID.ToString("X4");
+                        sh.Category = "Mapas detectados";
+                        sh.Varname = "Mapa presion objetivo [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";// " + sh.Flash_start_address.ToString("X8") + " " + sh.X_axis_ID.ToString("X4") + " " + sh.Y_axis_ID.ToString("X4");
                         sh.X_axis_correction = 0.01;
-                        sh.X_axis_descr = "IQ (mg/stroke)";
-                        sh.Y_axis_descr = "Engine speed (rpm)";
-                        sh.Z_axis_descr = "Boost target (mbar)";
+                        sh.X_axis_descr = "IQ (mg/rev)";
+                        sh.Y_axis_descr = "Revoluciones motor (rpm)";
+                        sh.Z_axis_descr = "Presion turbo (mbar)";
                         sh.YaxisUnits = "rpm";
-                        sh.XaxisUnits = "mg/st";
+                        sh.XaxisUnits = "mg/rev";
                     }
                     if (sh.X_axis_ID / 256 == 0xEC && sh.Y_axis_ID / 256 == 0xDA)
                     {
-                        sh.Category = "Detected maps";
-                        sh.Subcategory = "Limiters";
-                        sh.Varname = "IQ by MAP limiter [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";// " + sh.Flash_start_address.ToString("X8") +" " + sh.X_axis_ID.ToString("X4") + " " + sh.Y_axis_ID.ToString("X4");
+                        sh.Category = "Mapas detectados";
+                        sh.Subcategory = "Limitadores";
+                        sh.Varname = "IQ por limitador MAP [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";// " + sh.Flash_start_address.ToString("X8") +" " + sh.X_axis_ID.ToString("X4") + " " + sh.Y_axis_ID.ToString("X4");
                         sh.Correction = 0.01;
-                        sh.X_axis_descr = "Boost pressure";
-                        sh.Y_axis_descr = "Engine speed (rpm)";
-                        sh.Z_axis_descr = "Maximum IQ (mg)";
+                        sh.X_axis_descr = "Presion turbo";
+                        sh.Y_axis_descr = "Revoluciones motor (rpm)";
+                        sh.Z_axis_descr = "Maxima IQ (mg)";
                         sh.YaxisUnits = "rpm";
                         sh.XaxisUnits = "mbar";
                     }
@@ -953,17 +953,17 @@ namespace VAGSuite
                 }
                 else if (sh.Length == 308)
                 {
-                    sh.Category = "Detected maps";
-                    sh.Subcategory = "Limiters";
-                    //sh.Varname = "Boost limiter (temperature) [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
-                    sh.Varname = "SOI limiter (temperature) [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                    sh.Category = "Mapas detectados";
+                    sh.Subcategory = "Limitadores";
+                    //sh.Varname = "Boost limiter (temperatura) [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                    sh.Varname = "Limitador SOI (temperatura) [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
                     sh.Correction = -0.023437;
                     sh.Offset = 78;
-                    sh.Y_axis_descr = "Engine speed (rpm)";
-                    sh.X_axis_descr = "Temperature"; //IAT, ECT or Fuel temp?
+                    sh.Y_axis_descr = "Revoluciones motor (rpm)";
+                    sh.X_axis_descr = "Temperatura"; //IAT, ECT or Fuel temp?
                     sh.X_axis_correction = 0.1;
                     sh.X_axis_offset = -273.1;
-                    sh.Z_axis_descr = "SOI limit (degrees)";
+                    sh.Z_axis_descr = "SOI limite (grados)";
                     sh.YaxisUnits = "rpm";
                     sh.XaxisUnits = "°C";
                 }
@@ -971,14 +971,14 @@ namespace VAGSuite
                 {
                     if (sh.X_axis_length == 0x0d && sh.Y_axis_length == 0x0b)
                     {
-                        sh.Category = "Detected maps";
-                        sh.Subcategory = "Misc";
-                        sh.Varname = "Driver wish [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                        sh.Category = "Mapas detectados";
+                        sh.Subcategory = "Miscelanea";
+                        sh.Varname = "Deseso del conductor [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
                         sh.Correction = 0.01;
                         sh.X_axis_correction = 0.01;
-                        sh.X_axis_descr = "Throttle  position";
-                        sh.Z_axis_descr = "Requested IQ (mg)";
-                        sh.Y_axis_descr = "Engine speed (rpm)";
+                        sh.X_axis_descr = "Posicion del pedal";
+                        sh.Z_axis_descr = "IQ requerida (mg)";
+                        sh.Y_axis_descr = "Revoluciones motor (rpm)";
                         sh.YaxisUnits = "rpm";
                         sh.XaxisUnits = "TPS %";
                     }
@@ -987,50 +987,50 @@ namespace VAGSuite
                 {
                     if (sh.X_axis_ID / 256 == 0xEC && sh.Y_axis_ID / 256 == 0xC0)
                     {
-                        sh.Category = "Detected maps";
+                        sh.Category = "Mapas detectados";
                         sh.Subcategory = "Turbo";
-                        sh.Varname = "Boost target map [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "] " + sh.Flash_start_address.ToString("X8") + " " + sh.X_axis_ID.ToString("X4") + " " + sh.Y_axis_ID.ToString("X4");
+                        sh.Varname = "Mapa presion objetivo [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "] " + sh.Flash_start_address.ToString("X8") + " " + sh.X_axis_ID.ToString("X4") + " " + sh.Y_axis_ID.ToString("X4");
                         sh.X_axis_correction = 0.01;
-                        sh.X_axis_descr = "IQ (mg/stroke)";
-                        sh.Y_axis_descr = "Engine speed (rpm)";
-                        sh.Z_axis_descr = "Boost target (mbar)";
+                        sh.X_axis_descr = "IQ (mg/rev)";
+                        sh.Y_axis_descr = "Revoluciones motor (rpm)";
+                        sh.Z_axis_descr = "Presion objetivo (mbar)";
                         sh.YaxisUnits = "rpm";
-                        sh.XaxisUnits = "mg/st";
+                        sh.XaxisUnits = "mg/rev";
                     }
                 }
                 else if (sh.Length == 260) // EXPERIMENTAL
                 {
                     if (sh.X_axis_ID / 256 == 0xC5 && sh.Y_axis_ID / 256 == 0xEC)
                     {
-                        sh.Category = "Detected maps";
-                        sh.Subcategory = "Fuel";
-                        int injDurCount = GetMapNameCountForCodeBlock("Injector duration", sh.CodeBlock, newSymbols, false);
+                        sh.Category = "Mapas detectados";
+                        sh.Subcategory = "Combustible";
+                        int injDurCount = GetMapNameCountForCodeBlock("Injector duracion", sh.CodeBlock, newSymbols, false);
                         injDurCount--;
                         //if (injDurCount < 1) injDurCount = 1;
 
-                        sh.Varname = "Injector duration " + injDurCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                        sh.Varname = "Injector duracion " + injDurCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
                         sh.Y_axis_correction = 0.01; 
                         sh.Correction = 0.023437;
-                        sh.X_axis_descr = "Engine speed (rpm)";
-                        //sh.Y_axis_descr = "Airflow mg/stroke";
-                        sh.Y_axis_descr = "Requested Quantity mg/stroke";
+                        sh.X_axis_descr = "Revoluciones motor (rpm)";
+                        //sh.Y_axis_descr = "Flujo mg/rev";
+                        sh.Y_axis_descr = "Cantidad Requerida en mg/rev";
 
-                        sh.Z_axis_descr = "Duration (crankshaft degrees)";
+                        sh.Z_axis_descr = "Duracion (grados cigueñal)";
                         sh.XaxisUnits = "rpm";
-                        sh.YaxisUnits = "mg/st";
+                        sh.YaxisUnits = "mg/rev";
 
                     }
                 }
                 else if (sh.Length == 256)
                 {
-                    sh.Category = "Detected maps";
-                    sh.Subcategory = "Misc";
-                    sh.Varname = "Driver wish [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                    sh.Category = "Mapas detectados";
+                    sh.Subcategory = "Miscelanea";
+                    sh.Varname = "Deseo del conductor [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
                     sh.Correction = 0.01;
                     sh.X_axis_correction = 0.01;
-                    sh.X_axis_descr = "Throttle  position";
-                    sh.Z_axis_descr = "Requested IQ (mg)";
-                    sh.Y_axis_descr = "Engine speed (rpm)";
+                    sh.X_axis_descr = "Posicion del pedal";
+                    sh.Z_axis_descr = "IQ Requerida (mg)";
+                    sh.Y_axis_descr = "Revoluciones motor (rpm)";
                     sh.YaxisUnits = "rpm";
                     sh.XaxisUnits = "TPS %";
 
@@ -1041,14 +1041,14 @@ namespace VAGSuite
                     {
                         if (sh.X_axis_ID / 256 == 0xEC && sh.Y_axis_ID / 256 == 0xC0)
                         {
-                            sh.Category = "Detected maps";
-                            sh.Subcategory = "Misc";
-                            sh.Varname = "Driver wish [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                            sh.Category = "Mapas detectados";
+                            sh.Subcategory = "Miscelanea";
+                            sh.Varname = "Deseo del conductor [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
                             sh.Correction = 0.01;
                             sh.X_axis_correction = 0.01;
-                            sh.X_axis_descr = "Throttle  position";
-                            sh.Z_axis_descr = "Requested IQ (mg)";
-                            sh.Y_axis_descr = "Engine speed (rpm)";
+                            sh.X_axis_descr = "Posicion del pedal";
+                            sh.Z_axis_descr = "IQ Requerida (mg)";
+                            sh.Y_axis_descr = "Revoluciones motor (rpm)";
                             sh.YaxisUnits = "rpm";
                             sh.XaxisUnits = "TPS %";
                         }
@@ -1059,22 +1059,22 @@ namespace VAGSuite
                 {
                     if (sh.X_axis_ID / 256 == 0xC5 && sh.Y_axis_ID / 256 == 0xEC)
                     {
-                        sh.Category = "Detected maps";
-                        sh.Subcategory = "Fuel";
-                        int injDurCount = GetMapNameCountForCodeBlock("Injector duration", sh.CodeBlock, newSymbols, false);
+                        sh.Category = "Mapas detectados";
+                        sh.Subcategory = "Combustible";
+                        int injDurCount = GetMapNameCountForCodeBlock("Injector duracion", sh.CodeBlock, newSymbols, false);
                         injDurCount--;
                         //if (injDurCount < 1) injDurCount = 1;
 
-                        sh.Varname = "Injector duration " + injDurCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                        sh.Varname = "Injector duracion " + injDurCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
                         sh.Y_axis_correction = 0.01; 
                         sh.Correction = 0.023437;
-                        sh.X_axis_descr = "Engine speed (rpm)";
-                        //sh.Y_axis_descr = "Airflow mg/stroke";
-                        sh.Y_axis_descr = "Requested Quantity mg/stroke";
+                        sh.X_axis_descr = "Revoluciones motor (rpm)";
+                        //sh.Y_axis_descr = "Flujo mg/rev";
+                        sh.Y_axis_descr = "Cantidad Requerida en mg/rev";
 
-                        sh.Z_axis_descr = "Duration (crankshaft degrees)";
+                        sh.Z_axis_descr = "Duracion (grados cigueñal)";
                         sh.XaxisUnits = "rpm";
-                        sh.YaxisUnits = "mg/st";
+                        sh.YaxisUnits = "mg/rev";
 
                     }
                 }
@@ -1082,14 +1082,14 @@ namespace VAGSuite
                 {
                     if (sh.X_axis_length == 12 && sh.Y_axis_length == 9)
                     {
-                        sh.Category = "Detected maps";
-                        sh.Subcategory = "Misc";
-                        sh.Varname = "Driver wish [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                        sh.Category = "Mapas detectados";
+                        sh.Subcategory = "Miscelanea";
+                        sh.Varname = "Deseo del conductor [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
                         sh.Correction = 0.01;
                         sh.X_axis_correction = 0.01;
-                        sh.X_axis_descr = "Throttle  position";
-                        sh.Z_axis_descr = "Requested IQ (mg)";
-                        sh.Y_axis_descr = "Engine speed (rpm)";
+                        sh.X_axis_descr = "Posicion del pedal";
+                        sh.Z_axis_descr = "IQ Requerida (mg)";
+                        sh.Y_axis_descr = "Revoluciones motor (rpm)";
                         sh.YaxisUnits = "rpm";
                         sh.XaxisUnits = "TPS %";
                     }
@@ -1099,27 +1099,27 @@ namespace VAGSuite
                 {
                     if (sh.X_axis_ID / 256 == 0xC0 && sh.Y_axis_ID / 256 == 0xEC)
                     {
-                        sh.Category = "Detected maps";
-                        sh.Subcategory = "Limiters";
-                        sh.Varname = "Boost limit map [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";// " + sh.Flash_start_address.ToString("X8") + " " + sh.X_axis_ID.ToString("X4") + " " + sh.Y_axis_ID.ToString("X4");
+                        sh.Category = "Mapas detectados";
+                        sh.Subcategory = "Limitadores";
+                        sh.Varname = "Mapa limite presion turbo [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";// " + sh.Flash_start_address.ToString("X8") + " " + sh.X_axis_ID.ToString("X4") + " " + sh.Y_axis_ID.ToString("X4");
                         //   sh.Correction = 0.01;
                         //sh.X_axis_correction = 0.01;
-                        sh.Y_axis_descr = "Atmospheric pressure (mbar)";
-                        sh.Z_axis_descr = "Maximum boost pressure (mbar)";
-                        sh.X_axis_descr = "Engine speed (rpm)";
+                        sh.Y_axis_descr = "Presion atmosferica (mbar)";
+                        sh.Z_axis_descr = "Presion turbo maxima (mbar)";
+                        sh.X_axis_descr = "Revoluciones motor (rpm)";
                         sh.XaxisUnits = "rpm";
                         sh.YaxisUnits = "mbar";
                     }
                     else if (sh.X_axis_ID / 256 == 0xC0 && sh.Y_axis_ID / 256 == 0xEA)
                     {
-                        sh.Category = "Detected maps";
-                        sh.Subcategory = "Limiters";
-                        sh.Varname = "Boost limit map [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";// " + sh.Flash_start_address.ToString("X8") + " " + sh.X_axis_ID.ToString("X4") + " " + sh.Y_axis_ID.ToString("X4");
+                        sh.Category = "Mapas detectados";
+                        sh.Subcategory = "Limitadores";
+                        sh.Varname = "Mapa limite presion turbo [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";// " + sh.Flash_start_address.ToString("X8") + " " + sh.X_axis_ID.ToString("X4") + " " + sh.Y_axis_ID.ToString("X4");
                         //   sh.Correction = 0.01;
                         //sh.X_axis_correction = 0.01;
-                        sh.Y_axis_descr = "Atmospheric pressure (mbar)";
-                        sh.Z_axis_descr = "Maximum boost pressure (mbar)";
-                        sh.X_axis_descr = "Engine speed (rpm)";
+                        sh.Y_axis_descr = "Presion atmosferica (mbar)";
+                        sh.Z_axis_descr = "Presion turbo maxima (mbar)";
+                        sh.X_axis_descr = "Revoluciones motor (rpm)";
                         sh.XaxisUnits = "rpm";
                         sh.YaxisUnits = "mbar";
                     }
@@ -1128,101 +1128,101 @@ namespace VAGSuite
                         //if (!MapContainsNegativeValues(allBytes, sh))
                         if (GetMaxAxisValue(allBytes, sh, MapViewerEx.AxisIdent.X_Axis) > 3500) // was 5000
                         {
-                            sh.Category = "Detected maps";
-                            sh.Subcategory = "Fuel"; // was Limiters
+                            sh.Category = "Mapas detectados";
+                            sh.Subcategory = "Combustible"; // was Limiters
                             // was limiter
-                            int injDurCount = GetMapNameCountForCodeBlock("Injector duration", sh.CodeBlock, newSymbols, false);
+                            int injDurCount = GetMapNameCountForCodeBlock("Injector duracion", sh.CodeBlock, newSymbols, false);
                             injDurCount--;
 
-                            sh.Varname = "Injector duration " + injDurCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";// " + sh.Flash_start_address.ToString("X8") + " " + sh.X_axis_ID.ToString("X4") + " " + sh.Y_axis_ID.ToString("X4");
+                            sh.Varname = "Injector duracion " + injDurCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";// " + sh.Flash_start_address.ToString("X8") + " " + sh.X_axis_ID.ToString("X4") + " " + sh.Y_axis_ID.ToString("X4");
                             sh.Correction = 0.023438;
                             sh.Y_axis_correction = 0.01;
-                            sh.Y_axis_descr = "IQ (mg/stroke)";
-                            //sh.Z_axis_descr = "Max. degrees";
-                            sh.Z_axis_descr = "Duration (crankshaft degrees)";
+                            sh.Y_axis_descr = "IQ (mg/rev)";
+                            //sh.Z_axis_descr = "Max. grados";
+                            sh.Z_axis_descr = "Duracion (grados cigueñal)";
 
-                            sh.X_axis_descr = "Engine speed (rpm)";
+                            sh.X_axis_descr = "Revoluciones motor (rpm)";
                             sh.XaxisUnits = "rpm";
-                            sh.YaxisUnits = "mg/st";
+                            sh.YaxisUnits = "mg/rev";
 
                         }
                         else
                         {
-                            sh.Category = "Detected maps";
-                            sh.Subcategory = "Fuel";
-                            int injDurCount = GetMapNameCountForCodeBlock("Injector duration", sh.CodeBlock, newSymbols, false);
+                            sh.Category = "Mapas detectados";
+                            sh.Subcategory = "Combustible";
+                            int injDurCount = GetMapNameCountForCodeBlock("Injector duracion", sh.CodeBlock, newSymbols, false);
                             injDurCount--;
                             //if (injDurCount < 1) injDurCount = 1;
-                            sh.Varname = "Injector duration " + injDurCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                            sh.Varname = "Injector duracion " + injDurCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
                             sh.Y_axis_correction = 0.01; 
                             sh.Correction = 0.023437;
-                            sh.X_axis_descr = "Engine speed (rpm)";
-                            //sh.Y_axis_descr = "Airflow mg/stroke";
-                            sh.Y_axis_descr = "Requested Quantity mg/stroke";
+                            sh.X_axis_descr = "Revoluciones motor (rpm)";
+                            //sh.Y_axis_descr = "Flujo mg/rev";
+                            sh.Y_axis_descr = "Cantidad Requerida en mg/rev";
 
-                            sh.Z_axis_descr = "Duration (crankshaft degrees)";
+                            sh.Z_axis_descr = "Duracion (grados cigueñal)";
                             sh.XaxisUnits = "rpm";
-                            sh.YaxisUnits = "mg/st";
+                            sh.YaxisUnits = "mg/rev";
 
                         }
                     }
                     else if (sh.X_axis_ID / 256 == 0xC4 && sh.Y_axis_ID / 256 == 0xEA)
                     {
-                        sh.Category = "Detected maps";
-                        sh.Subcategory = "Fuel";
-                        int injDurCount = GetMapNameCountForCodeBlock("Injector duration", sh.CodeBlock, newSymbols, false);
+                        sh.Category = "Mapas detectados";
+                        sh.Subcategory = "Combustible";
+                        int injDurCount = GetMapNameCountForCodeBlock("Injector duracion", sh.CodeBlock, newSymbols, false);
                         injDurCount--;
                         //if (injDurCount < 1) injDurCount = 1;
-                        sh.Varname = "Injector duration " + injDurCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                        sh.Varname = "Duracion Injector " + injDurCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
                         sh.Y_axis_correction = 0.01; 
                         sh.Correction = 0.023437;
-                        sh.X_axis_descr = "Engine speed (rpm)";
-                        //sh.Y_axis_descr = "Airflow mg/stroke";
-                        sh.Y_axis_descr = "Requested Quantity mg/stroke";
+                        sh.X_axis_descr = "Revoluciones motor (rpm)";
+                        //sh.Y_axis_descr = "Flujo mg/rev";
+                        sh.Y_axis_descr = "Cantidad Requerida en mg/rev";
 
-                        sh.Z_axis_descr = "Duration (crankshaft degrees)";
+                        sh.Z_axis_descr = "Duracion (grados cigueñal)";
                         sh.XaxisUnits = "rpm";
-                        sh.YaxisUnits = "mg/st";
+                        sh.YaxisUnits = "mg/rev";
                     }
                     else if (sh.X_axis_ID / 256 == 0xC4 && sh.Y_axis_ID / 256 == 0xEC)
                     {
-                        sh.Category = "Detected maps";
-                        sh.Subcategory = "Fuel";
-                        int injDurCount = GetMapNameCountForCodeBlock("Injector duration", sh.CodeBlock, newSymbols, false);
+                        sh.Category = "Mapas detectados";
+                        sh.Subcategory = "Combustible";
+                        int injDurCount = GetMapNameCountForCodeBlock("Injector duracion", sh.CodeBlock, newSymbols, false);
                         injDurCount--;
                         //if (injDurCount < 1) injDurCount = 1;
-                        sh.Varname = "Injector duration " + injDurCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                        sh.Varname = "Duracion Injector " + injDurCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
                         sh.Y_axis_correction = 0.01; 
                         sh.Correction = 0.023437;
-                        sh.X_axis_descr = "Engine speed (rpm)";
-                        //sh.Y_axis_descr = "Airflow mg/stroke";
-                        sh.Y_axis_descr = "Requested Quantity mg/stroke";
+                        sh.X_axis_descr = "Revoluciones motor (rpm)";
+                        //sh.Y_axis_descr = "Flujo mg/rev";
+                        sh.Y_axis_descr = "Cantidad Requerida en mg/rev";
 
-                        sh.Z_axis_descr = "Duration (crankshaft degrees)";
+                        sh.Z_axis_descr = "Duracion (grados cigueñal)";
                         sh.XaxisUnits = "rpm";
-                        sh.YaxisUnits = "mg/st";
+                        sh.YaxisUnits = "mg/rev";
                     }
                 }
                 else if (sh.Length == 198) // EXPERIMENTAL
                 {
                     if (sh.X_axis_ID / 256 == 0xC5 && sh.Y_axis_ID / 256 == 0xEC)
                     {
-                        sh.Category = "Detected maps";
-                        sh.Subcategory = "Fuel";
-                        int injDurCount = GetMapNameCountForCodeBlock("Injector duration", sh.CodeBlock, newSymbols, false);
+                        sh.Category = "Mapas detectados";
+                        sh.Subcategory = "Combustible";
+                        int injDurCount = GetMapNameCountForCodeBlock("Injector duracion", sh.CodeBlock, newSymbols, false);
                         injDurCount--;
                         //if (injDurCount < 1) injDurCount = 1;
 
-                        sh.Varname = "Injector duration " + injDurCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                        sh.Varname = "Duracion Injector " + injDurCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
                         sh.Y_axis_correction = 0.01; 
                         sh.Correction = 0.023437;
-                        sh.X_axis_descr = "Engine speed (rpm)";
-                        //sh.Y_axis_descr = "Airflow mg/stroke";
-                        sh.Y_axis_descr = "Requested Quantity mg/stroke";
+                        sh.X_axis_descr = "Revoluciones motor (rpm)";
+                        //sh.Y_axis_descr = "Flujo mg/rev";
+                        sh.Y_axis_descr = "Cantidad Requerida en mg/rev";
 
-                        sh.Z_axis_descr = "Duration (crankshaft degrees)";
+                        sh.Z_axis_descr = "Duracion (grados cigueñal)";
                         sh.XaxisUnits = "rpm";
-                        sh.YaxisUnits = "mg/st";
+                        sh.YaxisUnits = "mg/rev";
 
                     }
                 }
@@ -1230,14 +1230,14 @@ namespace VAGSuite
                 {
                     if (sh.X_axis_ID / 256 == 0xEC && sh.Y_axis_ID / 256 == 0xC0)
                     {
-                        sh.Category = "Detected maps";
-                        sh.Subcategory = "Misc";
-                        sh.Varname = "Driver wish [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                        sh.Category = "Mapas detectados";
+                        sh.Subcategory = "Miscelanea";
+                        sh.Varname = "Deseo del conductor [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
                         sh.Correction = 0.01;
                         sh.X_axis_correction = 0.01;
                         sh.X_axis_descr = "Throttle  position";
-                        sh.Z_axis_descr = "Requested IQ (mg)";
-                        sh.Y_axis_descr = "Engine speed (rpm)";
+                        sh.Z_axis_descr = "IQ Requerida (mg)";
+                        sh.Y_axis_descr = "Revoluciones motor (rpm)";
                         sh.YaxisUnits = "rpm";
                         sh.XaxisUnits = "TPS %";
 
@@ -1249,89 +1249,89 @@ namespace VAGSuite
                     {
                         if (sh.X_axis_ID / 256 == 0xEC && sh.Y_axis_ID / 256 == 0xC1)
                         {
-                            sh.Category = "Detected maps";
-                            sh.Subcategory = "Fuel";
-                            int sIQCount = GetMapNameCountForCodeBlock("Start IQ ", sh.CodeBlock, newSymbols, false);
-                            sh.Varname = "Start IQ (" + sIQCount.ToString() + ") [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                            sh.Category = "Mapas detectados";
+                            sh.Subcategory = "Combustible";
+                            int sIQCount = GetMapNameCountForCodeBlock("Arranque IQ ", sh.CodeBlock, newSymbols, false);
+                            sh.Varname = "Arranque IQ (" + sIQCount.ToString() + ") [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
                             sh.Correction = 0.01;
                             sh.X_axis_descr = "CT (celcius)";
                             sh.X_axis_correction = 0.1;
                             sh.X_axis_offset = -273.1;
-                            sh.Z_axis_descr = "Requested IQ (mg)";
-                            sh.Y_axis_descr = "Engine speed (rpm)";
+                            sh.Z_axis_descr = "IQ Requerida (mg)";
+                            sh.Y_axis_descr = "Revoluciones motor (rpm)";
                             sh.YaxisUnits = "rpm";
                             sh.XaxisUnits = "degC";
                         }
                         else if (sh.X_axis_ID / 256 == 0xC0 && sh.Y_axis_ID / 256 == 0xEC)
                         {
                             // atm boost limit R3 file versions
-                            sh.Category = "Detected maps";
-                            sh.Subcategory = "Limiters";
-                            sh.Varname = "Boost limit map [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";// " + sh.Flash_start_address.ToString("X8") + " " + sh.X_axis_ID.ToString("X4") + " " + sh.Y_axis_ID.ToString("X4");
+                            sh.Category = "Mapas detectados";
+                            sh.Subcategory = "Limitadores";
+                            sh.Varname = "Mapa limite presion [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";// " + sh.Flash_start_address.ToString("X8") + " " + sh.X_axis_ID.ToString("X4") + " " + sh.Y_axis_ID.ToString("X4");
                             //   sh.Correction = 0.01;
                             //sh.X_axis_correction = 0.01;
-                            sh.Y_axis_descr = "Atmospheric pressure (mbar)";
-                            sh.Z_axis_descr = "Maximum boost pressure (mbar)";
-                            sh.X_axis_descr = "Engine speed (rpm)";
+                            sh.Y_axis_descr = "Presion atmosferica (mbar)";
+                            sh.Z_axis_descr = "Presion turbo maxima (mbar)";
+                            sh.X_axis_descr = "Revoluciones motor (rpm)";
                             sh.XaxisUnits = "rpm";
                             sh.YaxisUnits = "mbar";
                         }
                         else if (sh.X_axis_ID / 256 == 0xC5 && sh.Y_axis_ID / 256 == 0xEC)
                         {
-                            sh.Category = "Detected maps";
-                            sh.Subcategory = "Fuel";
-                            int injDurCount = GetMapNameCountForCodeBlock("Injector duration", sh.CodeBlock, newSymbols, false);
+                            sh.Category = "Mapas detectados";
+                            sh.Subcategory = "Combustible";
+                            int injDurCount = GetMapNameCountForCodeBlock("Injector duracion", sh.CodeBlock, newSymbols, false);
                             injDurCount--;
                             //if (injDurCount < 1) injDurCount = 1;
-                            sh.Varname = "Injector duration " + injDurCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                            sh.Varname = "Duracion Injector " + injDurCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
                             sh.Y_axis_correction = 0.01; 
                             sh.Correction = 0.023437;
-                            sh.X_axis_descr = "Engine speed (rpm)";
-                            //sh.Y_axis_descr = "Airflow mg/stroke";
-                            sh.Y_axis_descr = "Requested Quantity mg/stroke";
+                            sh.X_axis_descr = "Revoluciones motor (rpm)";
+                            //sh.Y_axis_descr = "Flujo mg/rev";
+                            sh.Y_axis_descr = "Cantidad Requerida en mg/rev";
 
-                            sh.Z_axis_descr = "Duration (crankshaft degrees)";
+                            sh.Z_axis_descr = "Duracion (grados cigueñal)";
                             sh.XaxisUnits = "rpm";
-                            sh.YaxisUnits = "mg/st";
+                            sh.YaxisUnits = "mg/rev";
                         }
                         else if (sh.X_axis_ID / 256 == 0xC4 && sh.Y_axis_ID / 256 == 0xEA)
                         {
-                            sh.Category = "Detected maps";
-                            sh.Subcategory = "Fuel";
-                            int injDurCount = GetMapNameCountForCodeBlock("Injector duration", sh.CodeBlock, newSymbols, false);
+                            sh.Category = "Mapas detectados";
+                            sh.Subcategory = "Combustible";
+                            int injDurCount = GetMapNameCountForCodeBlock("Injector duracion", sh.CodeBlock, newSymbols, false);
                             injDurCount--;
                             //if (injDurCount < 1) injDurCount = 1;
-                            sh.Varname = "Injector duration " + injDurCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                            sh.Varname = "Duracion Injector " + injDurCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
                             sh.Y_axis_correction = 0.01; 
                             sh.Correction = 0.023437;
-                            sh.X_axis_descr = "Engine speed (rpm)";
-                            //sh.Y_axis_descr = "Airflow mg/stroke";
-                            sh.Y_axis_descr = "Requested Quantity mg/stroke";
+                            sh.X_axis_descr = "Revoluciones motor (rpm)";
+                            //sh.Y_axis_descr = "Flujo mg/rev";
+                            sh.Y_axis_descr = "Cantidad Requerida en mg/rev";
 
-                            sh.Z_axis_descr = "Duration (crankshaft degrees)";
+                            sh.Z_axis_descr = "Duracion (grados cigueñal)";
                             sh.XaxisUnits = "rpm";
-                            sh.YaxisUnits = "mg/st";
+                            sh.YaxisUnits = "mg/rev";
                         }
                     }
                     else if (sh.X_axis_length == 10 && sh.Y_axis_length == 9)
                     {
                         if (sh.X_axis_ID / 256 == 0xC5 && sh.Y_axis_ID / 256 == 0xEC)
                         {
-                            sh.Category = "Detected maps";
-                            sh.Subcategory = "Fuel";
-                            int injDurCount = GetMapNameCountForCodeBlock("Injector duration", sh.CodeBlock, newSymbols, false);
+                            sh.Category = "Mapas detectados";
+                            sh.Subcategory = "Combustible";
+                            int injDurCount = GetMapNameCountForCodeBlock("Injector duracion", sh.CodeBlock, newSymbols, false);
                             injDurCount--;
                             //if (injDurCount < 1) injDurCount = 1;
-                            sh.Varname = "Injector duration " + injDurCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                            sh.Varname = "Injector duracion " + injDurCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
                             sh.Y_axis_correction = 0.01; 
                             sh.Correction = 0.023437;
-                            sh.X_axis_descr = "Engine speed (rpm)";
-                            //sh.Y_axis_descr = "Airflow mg/stroke";
-                            sh.Y_axis_descr = "Requested Quantity mg/stroke";
+                            sh.X_axis_descr = "Revoluciones motor (rpm)";
+                            //sh.Y_axis_descr = "Flujo mg/rev";
+                            sh.Y_axis_descr = "Cantidad Requerida en mg/rev";
 
-                            sh.Z_axis_descr = "Duration (crankshaft degrees)";
+                            sh.Z_axis_descr = "Duracion (grados cigueñal)";
                             sh.XaxisUnits = "rpm";
-                            sh.YaxisUnits = "mg/st";
+                            sh.YaxisUnits = "mg/rev";
                         }
                     }
                 }
@@ -1341,16 +1341,16 @@ namespace VAGSuite
                     {
                         if (sh.X_axis_ID / 256 == 0xEC && sh.Y_axis_ID / 256 == 0xC1)
                         {
-                            sh.Category = "Detected maps";
-                            sh.Subcategory = "Fuel";
-                            int sIQCount = GetMapNameCountForCodeBlock("Start IQ ", sh.CodeBlock, newSymbols, false);
-                            sh.Varname = "Start IQ (" + sIQCount.ToString() + ") [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                            sh.Category = "Mapas detectados";
+                            sh.Subcategory = "Combustible";
+                            int sIQCount = GetMapNameCountForCodeBlock("Arranque IQ ", sh.CodeBlock, newSymbols, false);
+                            sh.Varname = "Arranque IQ (" + sIQCount.ToString() + ") [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
                             sh.Correction = 0.01;
                             sh.X_axis_descr = "CT (celcius)";
                             sh.X_axis_correction = 0.1;
                             sh.X_axis_offset = -273.1;
-                            sh.Z_axis_descr = "Requested IQ (mg)";
-                            sh.Y_axis_descr = "Engine speed (rpm)";
+                            sh.Z_axis_descr = "IQ Requerida (mg)";
+                            sh.Y_axis_descr = "Revoluciones motor (rpm)";
                             sh.YaxisUnits = "rpm";
                             sh.XaxisUnits = "degC";
                         }
@@ -1362,20 +1362,20 @@ namespace VAGSuite
                     {
                         if (sh.X_axis_ID / 256 == 0xC5 && sh.Y_axis_ID / 256 == 0xEC)
                         {
-                            sh.Category = "Detected maps";
-                            sh.Subcategory = "Fuel";
-                            int injDurCount = GetMapNameCountForCodeBlock("Injector duration", sh.CodeBlock, newSymbols, false);
+                            sh.Category = "Mapas detectados";
+                            sh.Subcategory = "Combustible";
+                            int injDurCount = GetMapNameCountForCodeBlock("Injector duracion", sh.CodeBlock, newSymbols, false);
                             injDurCount--;
-                            sh.Varname = "Injector duration " + injDurCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                            sh.Varname = "Duracion Injector " + injDurCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
                             sh.Y_axis_correction = 0.01; 
                             sh.Correction = 0.023437;
-                            sh.X_axis_descr = "Engine speed (rpm)";
-                            //sh.Y_axis_descr = "Airflow mg/stroke";
-                            sh.Y_axis_descr = "Requested Quantity mg/stroke";
+                            sh.X_axis_descr = "Revoluciones motor (rpm)";
+                            //sh.Y_axis_descr = "Flujo mg/rev";
+                            sh.Y_axis_descr = "Cantidad Requerida en mg/rev";
 
-                            sh.Z_axis_descr = "Duration (crankshaft degrees)";
+                            sh.Z_axis_descr = "Duracion (grados cigueñal)";
                             sh.XaxisUnits = "rpm";
-                            sh.YaxisUnits = "mg/st";
+                            sh.YaxisUnits = "mg/rev";
                         }
                     }
                 }
@@ -1385,30 +1385,30 @@ namespace VAGSuite
                     {
                         if (sh.X_axis_ID / 256 == 0xEC && sh.Y_axis_ID / 256 == 0xC0)
                         {
-                            sh.Category = "Detected maps";
-                            sh.Subcategory = "Fuel";
-                            sh.Varname = "Fuel volume correction map [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                            sh.Category = "Mapas detectados";
+                            sh.Subcategory = "Combustible";
+                            sh.Varname = "Mapa correcion volumen combustible [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
                             sh.Userdescription = "zmwMKOR_KF";
-                            sh.Z_axis_descr = "IQ correction per 100K";
+                            sh.Z_axis_descr = "IQ correccion por 100K";
                             sh.Correction = 0.002441;
-                            sh.Y_axis_descr = "Engine speed (rpm)";
+                            sh.Y_axis_descr = "Revoluciones motor (rpm)";
                             sh.X_axis_correction = 0.01;
-                            sh.X_axis_descr = "IQ (mg/stroke)";
+                            sh.X_axis_descr = "IQ (mg/rev)";
                         }
                     }
                     if (sh.X_axis_length == 8 && sh.Y_axis_length == 9)
                     {
                         if (sh.X_axis_ID / 256 == 0xEC && sh.Y_axis_ID / 256 == 0xC1)
                         {
-                            sh.Category = "Detected maps";
-                            sh.Subcategory = "Fuel";
-                            int sIQCount = GetMapNameCountForCodeBlock("Start IQ ", sh.CodeBlock, newSymbols, false);
-                            sh.Varname = "Start IQ (" + sIQCount.ToString() + ") [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                            sh.Category = "Mapas detectados";
+                            sh.Subcategory = "Combustible";
+                            int sIQCount = GetMapNameCountForCodeBlock("Arranque IQ ", sh.CodeBlock, newSymbols, false);
+                            sh.Varname = "Arranque IQ (" + sIQCount.ToString() + ") [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
                             sh.X_axis_descr = "CT (celcius)";
                             sh.X_axis_correction = 0.1;
                             sh.X_axis_offset = -273.1;
-                            sh.Z_axis_descr = "Requested IQ (mg)";
-                            sh.Y_axis_descr = "Engine speed (rpm)";
+                            sh.Z_axis_descr = "IQ Requerida (mg)";
+                            sh.Y_axis_descr = "Revoluciones motor (rpm)";
                             sh.Correction = 0.01;
                             sh.YaxisUnits = "rpm";
                             sh.XaxisUnits = "degC";
@@ -1417,12 +1417,12 @@ namespace VAGSuite
                     if (sh.X_axis_length == 3 && sh.Y_axis_length == 24)
                     {
                         // Tq Lim
-                        sh.Category = "Detected maps";
-                        sh.Subcategory = "Limiters";
-                        sh.Varname = "Torque limiter [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
-                        sh.Z_axis_descr = "Maximum IQ (mg)";
-                        sh.Y_axis_descr = "Atm. pressure (mbar)";
-                        sh.X_axis_descr = "Engine speed (rpm)";
+                        sh.Category = "Mapas detectados";
+                        sh.Subcategory = "Limitadores";
+                        sh.Varname = "Limitador de par [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                        sh.Z_axis_descr = "Maxima IQ (mg)";
+                        sh.Y_axis_descr = "Presion Atm. (mbar)";
+                        sh.X_axis_descr = "Revoluciones motor (rpm)";
                         sh.Correction = 0.01;
                         sh.XaxisUnits = "rpm";
                         sh.YaxisUnits = "mbar";
@@ -1436,14 +1436,14 @@ namespace VAGSuite
                         // check for valid axis data on temp data
                         if (IsValidTemperatureAxis(allBytes, sh, MapViewerEx.AxisIdent.Y_Axis))
                         {
-                            sh.Category = "Detected maps";
-                            sh.Subcategory = "Limiters";
+                            sh.Category = "Mapas detectados";
+                            sh.Subcategory = "Limitadores";
                             int maflimTempCount = GetMapNameCountForCodeBlock("MAF correction by temperature", sh.CodeBlock, newSymbols, false);
                             maflimTempCount--;
-                            sh.Varname = "MAF correction by temperature " + maflimTempCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
-                            sh.Z_axis_descr = "Limit";
-                            sh.Y_axis_descr = "Engine speed (rpm)";
-                            sh.X_axis_descr = "Intake air temperature"; //IAT, ECT or Fuel temp?
+                            sh.Varname = "Correcion caudalimetro por temperatura " + maflimTempCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                            sh.Z_axis_descr = "Limite";
+                            sh.Y_axis_descr = "Revoluciones motor (rpm)";
+                            sh.X_axis_descr = "Temperatura aire admision"; //IAT, ECT or Fuel temp?
                             sh.X_axis_correction = 0.1;
                             sh.X_axis_offset = -273.1;
                             sh.Correction = 0.01;
@@ -1457,14 +1457,14 @@ namespace VAGSuite
                         // check for valid axis data on temp data
                         if (IsValidTemperatureAxis(allBytes, sh, MapViewerEx.AxisIdent.Y_Axis))
                         {
-                            sh.Category = "Detected maps";
-                            sh.Subcategory = "Limiters";
-                            int maflimTempCount = GetMapNameCountForCodeBlock("MAF correction by temperature", sh.CodeBlock, newSymbols, false);
+                            sh.Category = "Mapas detectados";
+                            sh.Subcategory = "Limitadores";
+                            int maflimTempCount = GetMapNameCountForCodeBlock("Correcion caudalimetro por temperatura", sh.CodeBlock, newSymbols, false);
                             maflimTempCount--;
-                            sh.Varname = "MAF correction by temperature " + maflimTempCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
-                            sh.Z_axis_descr = "Limit";
-                            sh.Y_axis_descr = "Engine speed (rpm)";
-                            sh.X_axis_descr = "Intake air temperature"; //IAT, ECT or Fuel temp?
+                            sh.Varname = "Correcion caudalimetro por temperatura " + maflimTempCount.ToString("D2") + " [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                            sh.Z_axis_descr = "Limite";
+                            sh.Y_axis_descr = "Revoluciones motor (rpm)";
+                            sh.X_axis_descr = "Temperatura aire admision"; //IAT, ECT or Fuel temp?
                             sh.X_axis_correction = 0.1;
                             sh.X_axis_offset = -273.1;
                             sh.Correction = 0.01;
@@ -1475,18 +1475,18 @@ namespace VAGSuite
                     }
                     else if (sh.X_axis_ID / 256 == 0xEC && sh.Y_axis_ID / 256 == 0xC0) // EXPERIMENTAL
                     {
-                        sh.Category = "Detected maps";
-                        sh.Subcategory = "Limiters";
-                        sh.Varname = "Expected fuel temperature [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                        sh.Category = "Mapas detectados";
+                        sh.Subcategory = "Limitadores";
+                        sh.Varname = "Temperatura combustible prevista [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
                         sh.Userdescription = "zmwMKBT_KF";
                         sh.Correction = 0.1;
                         sh.Offset = -273.1;
-                        sh.Y_axis_descr = "Engine speed (rpm)";
+                        sh.Y_axis_descr = "Revoluciones motor (rpm)";
                         sh.YaxisUnits = "rpm";
                         sh.X_axis_correction = 0.01;
-                        sh.XaxisUnits = "mg/st";
-                        sh.X_axis_descr = "IQ (mg/stroke)";
-                        sh.Z_axis_descr = "Fuel temperature °C";
+                        sh.XaxisUnits = "mg/rev";
+                        sh.X_axis_descr = "IQ (mg/rev)";
+                        sh.Z_axis_descr = "Temperatura combustible °C";
                         
 
                     }
@@ -1496,12 +1496,12 @@ namespace VAGSuite
                 {
                     if (sh.X_axis_length == 3 && sh.Y_axis_length == 25)
                     {
-                        sh.Category = "Detected maps";
-                        sh.Subcategory = "Limiters";
-                        sh.Varname = "Torque limiter [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
-                        sh.Z_axis_descr = "Maximum IQ (mg)";
-                        sh.Y_axis_descr = "Atm. pressure (mbar)";
-                        sh.X_axis_descr = "Engine speed (rpm)";
+                        sh.Category = "Mapas detectados";
+                        sh.Subcategory = "Limitadores";
+                        sh.Varname = "Limitador de par [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                        sh.Z_axis_descr = "Maxima IQ (mg)";
+                        sh.Y_axis_descr = "Presion Atm. (mbar)";
+                        sh.X_axis_descr = "Revoluciones motor (rpm)";
                         sh.Correction = 0.01;
                         sh.XaxisUnits = "rpm";
                         sh.YaxisUnits = "mbar";
@@ -1512,12 +1512,12 @@ namespace VAGSuite
                 {
                     if (sh.X_axis_length == 3 && sh.Y_axis_length == 23)
                     {
-                        sh.Category = "Detected maps";
-                        sh.Subcategory = "Limiters";
-                        sh.Varname = "Torque limiter [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
-                        sh.Z_axis_descr = "Maximum IQ (mg)";
-                        sh.Y_axis_descr = "Atm. pressure (mbar)";
-                        sh.X_axis_descr = "Engine speed (rpm)";
+                        sh.Category = "Mapas detectados";
+                        sh.Subcategory = "Limitadores";
+                        sh.Varname = "Limitador de par [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                        sh.Z_axis_descr = "Maxima IQ (mg)";
+                        sh.Y_axis_descr = "Presion Atm. (mbar)";
+                        sh.X_axis_descr = "Revoluciones motor (rpm)";
                         sh.Correction = 0.01;
                         sh.XaxisUnits = "rpm";
                         sh.YaxisUnits = "mbar";
@@ -1528,12 +1528,12 @@ namespace VAGSuite
                 {
                     if (sh.X_axis_length == 3 && sh.Y_axis_length == 22)
                     {
-                        sh.Category = "Detected maps";
-                        sh.Subcategory = "Limiters";
-                        sh.Varname = "Torque limiter [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
-                        sh.Z_axis_descr = "Maximum IQ (mg)";
-                        sh.Y_axis_descr = "Atm. pressure (mbar)";
-                        sh.X_axis_descr = "Engine speed (rpm)";
+                        sh.Category = "Mapas detectados";
+                        sh.Subcategory = "Limitadores";
+                        sh.Varname = "Limitador de par [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                        sh.Z_axis_descr = "Maxima IQ (mg)";
+                        sh.Y_axis_descr = "Presion Atm. (mbar)";
+                        sh.X_axis_descr = "Revoluciones motor (rpm)";
                         sh.Correction = 0.01;
                         sh.XaxisUnits = "rpm";
                         sh.YaxisUnits = "mbar";
@@ -1544,12 +1544,12 @@ namespace VAGSuite
                 {
                     if (sh.X_axis_length == 3 && sh.Y_axis_length == 21)
                     {
-                        sh.Category = "Detected maps";
-                        sh.Subcategory = "Limiters";
-                        sh.Varname = "Torque limiter [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
-                        sh.Z_axis_descr = "Maximum IQ (mg)";
-                        sh.Y_axis_descr = "Atm. pressure (mbar)";
-                        sh.X_axis_descr = "Engine speed (rpm)";
+                        sh.Category = "Mapas detectados";
+                        sh.Subcategory = "Limitadores";
+                        sh.Varname = "Limitador de par [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                        sh.Z_axis_descr = "Maxima IQ (mg)";
+                        sh.Y_axis_descr = "Presion Atm. (mbar)";
+                        sh.X_axis_descr = "Revoluciones motor (rpm)";
                         sh.XaxisUnits = "rpm";
                         sh.YaxisUnits = "mbar";
                         sh.Correction = 0.01;
@@ -1559,12 +1559,12 @@ namespace VAGSuite
                 {
                     if (sh.X_axis_length == 3 && sh.Y_axis_length == 20)
                     {
-                        sh.Category = "Detected maps";
-                        sh.Subcategory = "Limiters";
-                        sh.Varname = "Torque limiter [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
-                        sh.Z_axis_descr = "Maximum IQ (mg)";
-                        sh.Y_axis_descr = "Atm. pressure (mbar)";
-                        sh.X_axis_descr = "Engine speed (rpm)";
+                        sh.Category = "Mapas detectados";
+                        sh.Subcategory = "Limitadores";
+                        sh.Varname = "Limitador de par [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                        sh.Z_axis_descr = "Maxima IQ (mg)";
+                        sh.Y_axis_descr = "Presion Atm. (mbar)";
+                        sh.X_axis_descr = "Revoluciones motor (rpm)";
                         sh.Correction = 0.01;
                         sh.XaxisUnits = "rpm";
                         sh.YaxisUnits = "mbar";
@@ -1575,9 +1575,9 @@ namespace VAGSuite
                 {
                     if (sh.X_axis_length == 32 && sh.Y_axis_length == 1)
                     {
-                        sh.Category = "Detected maps";
-                        sh.Subcategory = "Misc";
-                        sh.Varname = "MAF linearization [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                        sh.Category = "Mapas detectados";
+                        sh.Subcategory = "Miscelanea";
+                        sh.Varname = "MAF linearizacion [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
                     }
                 }
 
@@ -1587,13 +1587,13 @@ namespace VAGSuite
                     {
                         if (sh.Y_axis_ID == 0xC1A2)
                         {
-                            sh.Category = "Detected maps";
-                            sh.Subcategory = "Misc";
-                            sh.Varname = "EGR temperature map [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
-                            sh.X_axis_descr = "Temperature"; //IAT, ECT or Fuel temp?
+                            sh.Category = "Mapas detectados";
+                            sh.Subcategory = "Miscelanea";
+                            sh.Varname = "Mapa temperatura EGR [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                            sh.X_axis_descr = "Temperatura"; //IAT, ECT or Fuel temp?
                             sh.X_axis_correction = 0.1;
                             sh.X_axis_offset = -273.1;
-                            sh.Z_axis_descr = "Mass airflow correction";
+                            sh.Z_axis_descr = "Correccion flujo de aire";
                         }
                     }
                 }
@@ -1603,16 +1603,16 @@ namespace VAGSuite
                     {
                         
                         {
-                            sh.Category = "Detected maps";
-                            sh.Subcategory = "Limiters";
+                            sh.Category = "Mapas detectados";
+                            sh.Subcategory = "Limitadores";
                             //Temp after intercooler
-                            sh.Y_axis_descr = "Temperature";
-                            sh.X_axis_descr = "Engine speed (rpm)"; //IAT, ECT or Fuel temp?
+                            sh.Y_axis_descr = "Temperatura";
+                            sh.X_axis_descr = "Revoluciones motor (rpm)"; //IAT, ECT or Fuel temp?
                             sh.Y_axis_correction = 0.1;
                             sh.Y_axis_offset = -273.1;
                             sh.Z_axis_descr = "%";
                             sh.Correction = 0.01;
-                            sh.Varname = "IQ by air intake temp[" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                            sh.Varname = "IQ por temperatura de aire admision[" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
                         }
                     }
                 }
@@ -1623,16 +1623,16 @@ namespace VAGSuite
                     {
                         //if (sh.Y_axis_ID == 0xC1A2)
                         {
-                            sh.Category = "Detected maps";
-                            sh.Subcategory = "Misc";
-                            //sh.Y_axis_descr = "Engine speed (rpm)";
-                            sh.Y_axis_descr = "Air pressure";
-                            sh.X_axis_descr = "Temperature"; //IAT, ECT or Fuel temp?
+                            sh.Category = "Mapas detectados";
+                            sh.Subcategory = "Miscelanea";
+                            //sh.Y_axis_descr = "Revoluciones motor (rpm)";
+                            sh.Y_axis_descr = "Presion aire";
+                            sh.X_axis_descr = "Temperatura"; //IAT, ECT or Fuel temp?
                             sh.X_axis_correction = 0.1;
                             sh.X_axis_offset = -273.1;
-                            sh.Z_axis_descr = "Time (sec)";
+                            sh.Z_axis_descr = "Tiempo (seg)";
                             sh.Correction = 0.01;
-                            sh.Varname = "Pre-glow map [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                            sh.Varname = "Mapa calentadores [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
                         }
                     }
                 }
@@ -1643,14 +1643,14 @@ namespace VAGSuite
                     {
                         if ((sh.X_axis_ID & 0xFFF0) == 0xECB0)
                         {
-                            sh.Category = "Detected maps";
-                            sh.Subcategory = "Fuel";
-                            sh.Varname = "Selector for injector duration [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                            sh.Category = "Mapas detectados";
+                            sh.Subcategory = "Combustible";
+                            sh.Varname = "Selector para duracion injector [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
                             // soi values as axis!!
                             sh.Y_axis_correction = -0.023437;
                             sh.Y_axis_offset = 78;
                             sh.Correction = 0.00390625;
-                            sh.Z_axis_descr = "Map index";
+                            sh.Z_axis_descr = "Lista de mapas";
 
                             sh.YaxisUnits = "SOI";
                         }
@@ -1662,8 +1662,8 @@ namespace VAGSuite
                     {
                         if (IsValidTemperatureAxis(allBytes, sh, MapViewerEx.AxisIdent.X_Axis))
                         {
-                            sh.Category = "Detected maps";
-                            sh.Subcategory = "Misc";
+                            sh.Category = "Mapas detectados";
+                            sh.Subcategory = "Miscelanea";
                             int lmCount = GetMapNameCountForCodeBlock("Idle RPM", sh.CodeBlock, newSymbols, false);
 
                             sh.Varname = "Idle RPM (" + lmCount.ToString() + ") [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
@@ -1682,23 +1682,23 @@ namespace VAGSuite
                     {
                         if (sh.X_axis_ID == 0xEBA2 || sh.X_axis_ID == 0xEBA4 || sh.X_axis_ID == 0xE9BC)
                         {
-                            sh.Category = "Detected maps";
-                            sh.Subcategory = "Misc";
-                            sh.Varname = "MAP linearization [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                            sh.Category = "Mapas detectados";
+                            sh.Subcategory = "Miscelanea";
+                            sh.Varname = "MAP linearizacion [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
                         }
                         else if (sh.X_axis_ID / 256 == 0xC1) // idle RPM
                         {
                             if (IsValidTemperatureAxis(allBytes, sh, MapViewerEx.AxisIdent.X_Axis))
                             {
-                                sh.Category = "Detected maps";
-                                sh.Subcategory = "Misc";
-                                int lmCount = GetMapNameCountForCodeBlock("Idle RPM", sh.CodeBlock, newSymbols, false);
+                                sh.Category = "Mapas detectados";
+                                sh.Subcategory = "Miscelanea";
+                                int lmCount = GetMapNameCountForCodeBlock("Ralenti RPM", sh.CodeBlock, newSymbols, false);
 
-                                sh.Varname = "Idle RPM (" + lmCount.ToString() + ") [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
-                                sh.Y_axis_descr = "Coolant temperature";
+                                sh.Varname = "Ralenti RPM (" + lmCount.ToString() + ") [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                                sh.Y_axis_descr = "Temperatura anticongelante";
                                 sh.Y_axis_correction = 0.1;
                                 sh.Y_axis_offset = -273.1;
-                                sh.Z_axis_descr = "Target engine speed";
+                                sh.Z_axis_descr = "Rpm objetivo";
                                 sh.YaxisUnits = "°C";
                             }
 
@@ -1707,15 +1707,15 @@ namespace VAGSuite
                 }
                 if (sh.X_axis_ID == 0xDA6C && sh.Y_axis_ID == 0xDA6A)
                 {
-                    sh.Category = "Detected maps";
+                    sh.Category = "Mapas detectados";
                     sh.X_axis_correction = 0.1;
                     sh.X_axis_offset = -273.1;
                     sh.XaxisUnits = "°C";
-                    sh.Subcategory = "Limiters";
-                    sh.Varname = "Boost correction by temperature [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";// " + sh.Flash_start_address.ToString("X8") + " " + sh.X_axis_ID.ToString("X4") + " " + sh.Y_axis_ID.ToString("X4");
-                    sh.X_axis_descr = "IAT (celcius)";
-                    sh.Y_axis_descr = "Requested boost";
-                    sh.Z_axis_descr = "Boost limit (mbar)";
+                    sh.Subcategory = "Limitadores";
+                    sh.Varname = "Correccion presion turbo por temperatura [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";// " + sh.Flash_start_address.ToString("X8") + " " + sh.X_axis_ID.ToString("X4") + " " + sh.Y_axis_ID.ToString("X4");
+                    sh.X_axis_descr = "Temp.aire (celcius)";
+                    sh.Y_axis_descr = "Presion objetivo";
+                    sh.Z_axis_descr = "Presion limite (mbar)";
                     sh.YaxisUnits = "mbar";
                 }
             }
@@ -1831,7 +1831,7 @@ namespace VAGSuite
         private int GetMapNameCountForCodeBlock(string varName, int codeBlock, SymbolCollection newSymbols, bool debug)
         {
             int count = 0;
-            if (debug) Console.WriteLine("Check " + varName + " " + codeBlock);
+            if (debug) Console.WriteLine("Comprobar " + varName + " " + codeBlock);
 
             foreach (SymbolHelper sh in newSymbols)
             {
@@ -1845,7 +1845,7 @@ namespace VAGSuite
                 if (sh.Varname.StartsWith(varName) && sh.CodeBlock == codeBlock)
                 {
 
-                    if (debug) Console.WriteLine("Found " + sh.Varname + " " + sh.CodeBlock);
+                    if (debug) Console.WriteLine("Encontrados " + sh.Varname + " " + sh.CodeBlock);
 
                     count++;
                 }
@@ -2234,7 +2234,7 @@ namespace VAGSuite
                         }
                         else
                         {
-                            if (yaxisid > 0xC000 && yaxisid < 0xF000 && yaxislen <= 32) Console.WriteLine("Unknown map id: " + yaxisid.ToString("X4") + " len " + yaxislen.ToString("X4") + " at address " + t.ToString("X8"));
+                            if (yaxisid > 0xC000 && yaxisid < 0xF000 && yaxislen <= 32) Console.WriteLine("Id mapa desconocido: " + yaxisid.ToString("X4") + " lon " + yaxislen.ToString("X4") + " at address " + t.ToString("X8"));
                             SymbolHelper newSymbol = new SymbolHelper();
                             newSymbol.X_axis_length = xaxislen;
                             newSymbol.X_axis_ID = xaxisid;

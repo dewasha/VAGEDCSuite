@@ -159,7 +159,7 @@ namespace VAGSuite
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(704, 185);
             this.groupControl1.TabIndex = 0;
-            this.groupControl1.Text = "User interface settings";
+            this.groupControl1.Text = "Ajustes interfaz de usuario";
             this.groupControl1.Paint += new System.Windows.Forms.PaintEventHandler(this.groupControl1_Paint);
             // 
             // checkEdit11

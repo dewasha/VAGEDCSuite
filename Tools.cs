@@ -110,7 +110,7 @@ namespace VAGSuite
 					// 1. General lookup for EDC17-string in file
 					int pos = Tools.Instance.findSequence(allBytes, 0, Encoding.ASCII.GetBytes("ME(D)/EDC17"), new byte[11] { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 });
 					if(pos > 0) {
-						Console.WriteLine("Found ME(D)/EDC17 in firmware!");
+						Console.WriteLine("Encontrado ME(D)/EDC17 en firmware!");
 						retval = "EDC17";
 					}
 					// 2. BMW has 0281xxxxxx (boschnumber) written at FD00 and FE33
@@ -568,7 +568,7 @@ namespace VAGSuite
                 }
                 catch (Exception E)
                 {
-                    frmInfoBox info = new frmInfoBox("Failed to write to binary. Is it read-only? Details: " + E.Message);
+                    frmInfoBox info = new frmInfoBox("Fallo al escribir en el binario. Estara como solo lectura? Detalles: " + E.Message);
                 }
             }
         }
@@ -720,17 +720,17 @@ namespace VAGSuite
             result.NumberChecksumsOk = chks.ChecksumsFound - chks.ChecksumsIncorrect;
             if (res == ChecksumResult.ChecksumOK)
             {
-                Console.WriteLine("Checksum V4.1 matched");
+                Console.WriteLine("Checksum V4.1 encontrado");
                 result.CalculationOk = true;
             }
             else if (res == ChecksumResult.ChecksumFail)
             {
-                Console.WriteLine("UpdateChecksum: Checksum failed " + filename);
+                Console.WriteLine("Actualizar Checksum: Checksum fallido " + filename);
                 if (!verifyOnly)
                 {
                     File.WriteAllBytes(filename, allBytes);
                     result.CalculationOk = true;
-                    Console.WriteLine("UpdateChecksum: Checksum fixed");
+                    Console.WriteLine("Actualizar Checksum: Checksum corregido");
                 }
 
             }
@@ -749,17 +749,17 @@ namespace VAGSuite
 
                 if (res2002 == ChecksumResult.ChecksumOK)
                 {
-                    Console.WriteLine("Checksum 2002 matched " + filename);
+                    Console.WriteLine("Checksum 2002 encontrado " + filename);
                     result.CalculationOk = true;
                 }
                 else if (res2002 == ChecksumResult.ChecksumFail)
                 {
-                    Console.WriteLine("UpdateChecksum: Checksum 2002 failed " + filename);
+                    Console.WriteLine("Actualizar Checksum: Checksum 2002 fallido " + filename);
                     if (!verifyOnly)
                     {
                         File.WriteAllBytes(filename, allBytes);
                         result.CalculationOk = true;
-                        Console.WriteLine("UpdateChecksum: Checksum fixed");
+                        Console.WriteLine("Actualizar Checksum: Checksum corregido");
                     }
                 }
                 else if (res2002 == ChecksumResult.ChecksumTypeError)
@@ -808,17 +808,17 @@ namespace VAGSuite
             result.NumberChecksumsOk = chks.ChecksumsFound - chks.ChecksumsIncorrect;
             if (res == ChecksumResult.ChecksumOK)
             {
-                Console.WriteLine("Checksum V4.1 matched");
+                Console.WriteLine("Checksum V4.1 encontrado");
                 result.CalculationOk = true;
             }
             else if (res == ChecksumResult.ChecksumFail)
             {
-                Console.WriteLine("UpdateChecksum: Checksum failed " + filename);
+                Console.WriteLine("Actualizar Checksum: Checksum fallido " + filename);
                 if (!verifyOnly)
                 {
                     File.WriteAllBytes(filename, allBytes);
                     result.CalculationOk = true;
-                    Console.WriteLine("UpdateChecksum: Checksum fixed");
+                    Console.WriteLine("UpdateChecksum: Checksum corregido");
                 }
 
             }
@@ -834,17 +834,17 @@ namespace VAGSuite
 
                 if (res2002 == ChecksumResult.ChecksumOK)
                 {
-                    Console.WriteLine("Checksum 2002 matched " + filename);
+                    Console.WriteLine("Checksum 2002 encontrado " + filename);
                     result.CalculationOk = true;
                 }
                 else if (res2002 == ChecksumResult.ChecksumFail)
                 {
-                    Console.WriteLine("UpdateChecksum: Checksum 2002 failed " + filename);
+                    Console.WriteLine("Actualizar Checksum: Checksum 2002 fallido " + filename);
                     if (!verifyOnly)
                     {
                         File.WriteAllBytes(filename, allBytes);
                         result.CalculationOk = true;
-                        Console.WriteLine("UpdateChecksum: Checksum fixed");
+                        Console.WriteLine("Actualizar Checksum: Checksum corregido");
                     }
                 }
                 else if (res2002 == ChecksumResult.ChecksumTypeError)

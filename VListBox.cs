@@ -467,7 +467,7 @@ namespace vbAccelerator.Components.Controls
 					}
 					else
 					{
-						throw new ArgumentException("Index out of bounds", "index");
+						throw new ArgumentException("Fallo programa", "desconocido");
 					}
 					return selIndex;
 					

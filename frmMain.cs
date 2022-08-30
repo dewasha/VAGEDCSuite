@@ -2762,12 +2762,12 @@ namespace VAGSuite
                 if (projectfiles.Length > 0)
                 {
                     System.Data.DataTable projectprops = new System.Data.DataTable("T5PROJECT");
-                    projectprops.Columns.Add("CARMAKE");
-                    projectprops.Columns.Add("CARMODEL");
+                    projectprops.Columns.Add("FABRICANTE");
+                    projectprops.Columns.Add("MODELO");
                     projectprops.Columns.Add("CARMY");
-                    projectprops.Columns.Add("CARVIN");
-                    projectprops.Columns.Add("NAME");
-                    projectprops.Columns.Add("BINFILE");
+                    projectprops.Columns.Add("VIN");
+                    projectprops.Columns.Add("NOMBRE");
+                    projectprops.Columns.Add("ARCHIVO-BIN");
                     projectprops.Columns.Add("VERSION");
                     projectprops.ReadXml((string)projectfiles.GetValue(0));
                     // valid project, add it to the list

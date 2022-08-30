@@ -246,7 +246,7 @@ namespace VAGSuite
                     int[] testValue = Tools.Instance.readdatafromfileasint(filename, (int)shsvbl.Flash_start_address, 1, EDCFileType.EDC15C);
                     if (testValue[0] == 0xC300) shsvbl.Flash_start_address -= 2;
 
-                    shsvbl.Varname = "SVBL Boost limiter [" + DetermineNumberByFlashBank(shsvbl.Flash_start_address, newCodeBlocks) + "]";
+                    shsvbl.Varname = "SVBL Limitador turbo [" + DetermineNumberByFlashBank(shsvbl.Flash_start_address, newCodeBlocks) + "]";
                     shsvbl.Length = 2;
                     shsvbl.CodeBlock = DetermineCodeBlockByByAddress(shsvbl.Flash_start_address, newCodeBlocks);
                     newSymbols.Add(shsvbl);
@@ -270,17 +270,17 @@ namespace VAGSuite
                     {
                         if (sh.X_axis_ID / 256 == 0xE0 && sh.Y_axis_ID / 256 == 0xC2)
                         {
-                            sh.Category = "Detected maps";
-                            sh.Subcategory = "Fuel";
-                            sh.Varname = "N146 Pump voltage map [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                            sh.Category = "Mapas detectados";
+                            sh.Subcategory = "Combustible";
+                            sh.Varname = "Mapa Voltaje Bomba N146  [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
                             //sh.Correction = 0.001221001; // ?1.221001
                             //Todo: N146 correction factor EDC15C
                             sh.X_axis_correction = 0.01;
-                            sh.Z_axis_descr = "Pump voltage (V)";
-                            sh.X_axis_descr = "IQ (mg/stroke)";
-                            sh.Y_axis_descr = "Engine speed (rpm)";
+                            sh.Z_axis_descr = "Voltaje Bomba (V)";
+                            sh.X_axis_descr = "IQ (mg/rev)";
+                            sh.Y_axis_descr = "Revoluciones motor (rpm)";
                             sh.YaxisUnits = "rpm";
-                            sh.XaxisUnits = "mg/st";
+                            sh.XaxisUnits = "mg/rev";
                         }
                     }
                 }
@@ -290,17 +290,17 @@ namespace VAGSuite
                     {
                         if (sh.X_axis_ID / 256 == 0xDC && sh.Y_axis_ID / 256 == 0xC0)
                         {
-                            sh.Category = "Detected maps";
-                            sh.Subcategory = "Misc";
-                            sh.Varname = "Inverse driver wish [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                            sh.Category = "Mapas detectados";
+                            sh.Subcategory = "Miscelanea";
+                            sh.Varname = "Deseo del conductor inverso [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
                             sh.Correction = 0.01;
                             sh.X_axis_correction = 0.01;
-                            sh.Z_axis_descr = "Throttle  position";
-                            sh.X_axis_descr = "IQ (mg/stroke)";
-                            sh.Y_axis_descr = "Engine speed (rpm)";
+                            sh.Z_axis_descr = "Posicion del pedal";
+                            sh.X_axis_descr = "IQ (mg/rev)";
+                            sh.Y_axis_descr = "Revoluciones motor (rpm)";
                             //sh.Z_axis_descr = "Requested IQ (mg)";
                             sh.YaxisUnits = "rpm";
-                            sh.XaxisUnits = "mg/st";
+                            sh.XaxisUnits = "mg/rev";
                         }
                     }
                 }
@@ -311,31 +311,31 @@ namespace VAGSuite
                         if (sh.X_axis_ID / 256 == 0xF9 && sh.Y_axis_ID / 256 == 0xDB)
                         {
                             // this is IQ by MAF limiter!
-                            sh.Category = "Detected maps";
-                            sh.Subcategory = "Limiters";
-                            sh.Varname = "Smoke limiter [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
-                            sh.Z_axis_descr = "Maximum IQ (mg)";
-                            sh.Y_axis_descr = "Engine speed (rpm)";
-                            sh.X_axis_descr = "Airflow mg/stroke";
+                            sh.Category = "Mapas detectados";
+                            sh.Subcategory = "Limitadores";
+                            sh.Varname = "Limitador Humo [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                            sh.Z_axis_descr = "Maximo IQ (mg)";
+                            sh.Y_axis_descr = "Revoluciones motor (rpm)";
+                            sh.X_axis_descr = "Flujo de aire mg/rev";
                             sh.Correction = 0.01;
                             sh.X_axis_correction = 0.1; 
                             sh.YaxisUnits = "rpm";
-                            sh.XaxisUnits = "mg/st";
+                            sh.XaxisUnits = "mg/rev";
 
                         }
                         else if (sh.X_axis_ID / 256 == 0xF9 && sh.Y_axis_ID / 256 == 0xDA)
                         {
                             // this is IQ by MAF limiter!
-                            sh.Category = "Detected maps";
-                            sh.Subcategory = "Limiters";
-                            sh.Varname = "Smoke limiter [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
-                            sh.Z_axis_descr = "Maximum IQ (mg)";
-                            sh.Y_axis_descr = "Engine speed (rpm)";
-                            sh.X_axis_descr = "Airflow mg/stroke";
+                            sh.Category = "Mapas detectados";
+                            sh.Subcategory = "Limitadores";
+                            sh.Varname = "Limitador Humo [" + DetermineNumberByFlashBank(sh.Flash_start_address, newCodeBlocks) + "]";
+                            sh.Z_axis_descr = "Maximo IQ (mg)";
+                            sh.Y_axis_descr = "Revoluciones motor (rpm)";
+                            sh.X_axis_descr = "Flujo de aire mg/rev";
                             sh.Correction = 0.01;
                             sh.X_axis_correction = 0.1; 
                             sh.YaxisUnits = "rpm";
-                            sh.XaxisUnits = "mg/st";
+                            sh.XaxisUnits = "mg/rev";
 
                         }
                         else if (sh.X_axis_ID / 256 == 0xDC && sh.Y_axis_ID / 256 == 0xDA)

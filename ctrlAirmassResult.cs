@@ -251,7 +251,7 @@ namespace VAGSuite
             PerformanceResults pr = new PerformanceResults();
             FillComboBoxBankSelection();
             
-            SymbolHelper driverWishHelper = GetSymbolLike(symbols, "Driver wish", selectedBank);
+            SymbolHelper driverWishHelper = GetSymbolLike(symbols, "Deseo del conductor", selectedBank);
             int[] pedalrequestmap = readIntdatafromfile(filename, (int)driverWishHelper.Flash_start_address, driverWishHelper.Length);
             limitermap = new int[pedalrequestmap.Length];
             int[] resulttable = new int[pedalrequestmap.Length]; // result 
@@ -388,7 +388,7 @@ namespace VAGSuite
         {
             limiterType = limitType.None;
             // check against torque limiter
-            SymbolHelper trqLimiter = GetSymbolLike(symbols, "Torque limiter", selectedBank);
+            SymbolHelper trqLimiter = GetSymbolLike(symbols, "Limitador de Par", selectedBank);
             int[] trqLimitMap = readIntdatafromfile(filename, (int)trqLimiter.Flash_start_address, trqLimiter.Length);
             int[] trqXAxis = readIntdatafromfile(filename, trqLimiter.Y_axis_address, trqLimiter.Y_axis_length * 2);
             int[] trqYAxis = readIntdatafromfile(filename, trqLimiter.X_axis_address, trqLimiter.X_axis_length * 2);
@@ -399,7 +399,7 @@ namespace VAGSuite
                 //requestedairmass
                 if (requestedQuantity > Nmlimit)
                 {
-                    Console.WriteLine("Torque is limited from " + requestedQuantity.ToString() + " to " + Nmlimit.ToString() + " at " + rpm.ToString() + " rpm");
+                    Console.WriteLine("Par limitado en " + requestedQuantity.ToString() + " de " + Nmlimit.ToString() + " a " + rpm.ToString() + " rpm");
                     requestedQuantity = Nmlimit;
                     limiterType = limitType.TorqueLimiterEngine;
                 }
@@ -801,13 +801,13 @@ namespace VAGSuite
                 // get only the WOT cells, the last 16 integers
                 // and the columns which hold the rpm stages
                 chartControl1.Series.Clear();
-                string powerLabel = "Power (bhp)";
-                if (checkEdit5.Checked) powerLabel = "Power (kW)";
-                string torqueLabel = "Torque (Nm)";
-                if (checkEdit6.Checked) torqueLabel = "Torque (lbft)";
+                string powerLabel = "Potencia (cv)";
+                if (checkEdit5.Checked) powerLabel = "Potencia (kW)";
+                string torqueLabel = "Par (Nm)";
+                if (checkEdit6.Checked) torqueLabel = "Par (lb-pies)";
 
                 string injectorDCLabel = "Injector DC";
-                string targetLambdaLabel = "Target lambda";
+                string targetLambdaLabel = "Lambda Objetivo";
 
                 powerSeries = chartControl1.Series.Add(powerLabel, DevExpress.XtraCharts.ViewType.Spline);
                 torqueSeries = chartControl1.Series.Add(torqueLabel, DevExpress.XtraCharts.ViewType.Spline);
@@ -1024,7 +1024,7 @@ namespace VAGSuite
 
         private void labelControl3_DoubleClick(object sender, EventArgs e)
         {
-            CastStartViewerEvent("Torque limiter");
+            CastStartViewerEvent("Limitador de par");
         }
 
         private void labelControl12_DoubleClick(object sender, EventArgs e)
@@ -1271,7 +1271,7 @@ namespace VAGSuite
         {
             // save graph as image
             SaveFileDialog sfd = new SaveFileDialog();
-            sfd.Filter = "JPEG images|*.jpg";
+            sfd.Filter = "JPEG imagenes|*.jpg";
             if (sfd.ShowDialog() == DialogResult.OK)
             {
                 chartControl1.ExportToImage(sfd.FileName, System.Drawing.Imaging.ImageFormat.Jpeg);

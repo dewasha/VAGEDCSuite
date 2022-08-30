@@ -382,7 +382,7 @@ namespace VAGSuite
                 {
 
                     //Console.WriteLine("An update is available: " + maxversion.ToString());
-                    PumpString("A newer version is available: " + maxversion.ToString(), m_updateavailable, m_version_toohigh, maxversion, _info, Apppath + "\\Notes.xml");
+                    PumpString("Hay una actualizacion disponible: " + maxversion.ToString(), m_updateavailable, m_version_toohigh, maxversion, _info, Apppath + "\\Notes.xml");
                     m_NewVersion = maxversion;
 
                 }
@@ -393,7 +393,7 @@ namespace VAGSuite
                 }
                 else
                 {
-                    PumpString("No new version(s) found...", false, false, new Version(), _info, Apppath + "\\Notes.xml");
+                    PumpString("No hay nuevas versiones...", false, false, new Version(), _info, Apppath + "\\Notes.xml");
                 }
             }
             catch (Exception tuE)

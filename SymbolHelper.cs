@@ -146,14 +146,14 @@ namespace VAGSuite
             set { _description = value; }
         }
 
-        string _category = "Unknown maps";
+        string _category = "Mapas desconocidos";
 
         public string Category
         {
             get { return _category; }
             set { _category = value; }
         }
-        string _subcategory = "Unknown";
+        string _subcategory = "Desconocido";
 
         public string Subcategory
         {

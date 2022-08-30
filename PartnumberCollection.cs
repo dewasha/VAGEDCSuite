@@ -19,16 +19,16 @@ namespace VAGSuite
         public DataTable GeneratePartNumberCollection()
         {
             dt = new DataTable();
-            dt.Columns.Add("Carmodel");
-            dt.Columns.Add("Model");
-            dt.Columns.Add("Enginecode");
+            dt.Columns.Add("Modelo de coche");
+            dt.Columns.Add("Modelo");
+            dt.Columns.Add("Codigo de motor");
 
-            dt.Columns.Add("Partnumber");
-            dt.Columns.Add("SoftwareID");
-            dt.Columns.Add("ECU type");
-            dt.Columns.Add("Fueltype");
-            dt.Columns.Add("Horsepower");
-            dt.Columns.Add("Torque");
+            dt.Columns.Add("Referencia pieza");
+            dt.Columns.Add("Software ID");
+            dt.Columns.Add("Tipo de ECU");
+            dt.Columns.Add("Combustible");
+            dt.Columns.Add("CV");
+            dt.Columns.Add("Par");
 
             AddPartNumber("0261201101");
             AddPartNumber("0261201112");

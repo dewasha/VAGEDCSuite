@@ -151,12 +151,12 @@ namespace VAGSuite
                 case "BWB":
                 case "AYZ":
                 case "ANY":
-                    retval = "PD (pumpe duse)";
+                    retval = "PD (Injector Bomba)";
                     break;
                 case "BDJ":
                 case "BST":
                 case "BDK":
-                    retval = "SDI (suction diesel injection)";
+                    retval = "SDI (Injeccion de succion diesel)";
                     break;
                 case "AKE":
                 case "BAU":
@@ -167,7 +167,7 @@ namespace VAGSuite
                 case "AYM":
                 case "AFB":
                 case "AKN":
-                    retval = "VE mechanical distributor-type injection pump with direct injection";
+                    retval = "VE Bomba de distribuidor mecanico con injeccion directa";
                     break;
 
 

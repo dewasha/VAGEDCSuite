@@ -99,7 +99,7 @@ namespace VAGSuite
                 if (destType == typeof(string) && value is SymbolCollection)
                 {
                     // Return department and department role separated by comma.
-                    return "Symbols";
+                    return "Simbolos";
                 }
                 return base.ConvertTo(context, culture, value, destType);
             }

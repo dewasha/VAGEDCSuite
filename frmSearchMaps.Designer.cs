@@ -73,7 +73,7 @@ namespace VAGSuite
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(407, 187);
             this.groupControl1.TabIndex = 2;
-            this.groupControl1.Text = "Search options";
+            this.groupControl1.Text = "Opciones de busqueda";
             // 
             // textEdit1
             // 
@@ -86,7 +86,7 @@ namespace VAGSuite
             // 
             this.checkEdit4.Location = new System.Drawing.Point(15, 75);
             this.checkEdit4.Name = "checkEdit4";
-            this.checkEdit4.Properties.Caption = "Search for string value";
+            this.checkEdit4.Properties.Caption = "Buscar por cadena de texto";
             this.checkEdit4.Size = new System.Drawing.Size(153, 19);
             this.checkEdit4.TabIndex = 5;
             // 
@@ -103,7 +103,7 @@ namespace VAGSuite
             // 
             this.checkEdit2.Location = new System.Drawing.Point(15, 148);
             this.checkEdit2.Name = "checkEdit2";
-            this.checkEdit2.Properties.Caption = "Include symbol descriptions";
+            this.checkEdit2.Properties.Caption = "Incluir descripciones de simbolos";
             this.checkEdit2.Size = new System.Drawing.Size(185, 19);
             this.checkEdit2.TabIndex = 3;
             // 
@@ -111,7 +111,7 @@ namespace VAGSuite
             // 
             this.checkEdit1.Location = new System.Drawing.Point(15, 118);
             this.checkEdit1.Name = "checkEdit1";
-            this.checkEdit1.Properties.Caption = "Include symbol names";
+            this.checkEdit1.Properties.Caption = "Incluir nombres de simbolos";
             this.checkEdit1.Size = new System.Drawing.Size(185, 19);
             this.checkEdit1.TabIndex = 2;
             // 
@@ -131,7 +131,7 @@ namespace VAGSuite
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(75, 23);
             this.simpleButton2.TabIndex = 4;
-            this.simpleButton2.Text = "Cancel";
+            this.simpleButton2.Text = "Cancelar";
             this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
             // frmSearchMaps
@@ -150,7 +150,7 @@ namespace VAGSuite
             this.Name = "frmSearchMaps";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Search maps for value...";
+            this.Text = "Buscar mapas por valor...";
             ((System.ComponentModel.ISupportInitialize)(this.spinEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);

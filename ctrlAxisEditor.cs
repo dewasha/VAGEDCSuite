@@ -65,7 +65,7 @@ namespace VAGSuite
         public void SetData(float[] data)
         {
             DataTable dt = new DataTable();
-            dt.Columns.Add("VALUE");
+            dt.Columns.Add("VALOR");
             foreach (float f in data)
             {
                 dt.Rows.Add(f.ToString("F3"));

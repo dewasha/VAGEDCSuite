@@ -86,17 +86,17 @@ namespace VAGSuite
             // 
             // gcDescription
             // 
-            this.gcDescription.Caption = "Description";
-            this.gcDescription.FieldName = "description";
-            this.gcDescription.Name = "gcDescription";
+            this.gcDescription.Caption = "Descripcion";
+            this.gcDescription.FieldName = "descripcion";
+            this.gcDescription.Name = "gcDescripcion";
             this.gcDescription.Visible = true;
             this.gcDescription.VisibleIndex = 2;
             this.gcDescription.Width = 138;
             // 
             // gcTitle
             // 
-            this.gcTitle.Caption = "Title";
-            this.gcTitle.FieldName = "title";
+            this.gcTitle.Caption = "Titulo";
+            this.gcTitle.FieldName = "titulo";
             this.gcTitle.Name = "gcTitle";
             this.gcTitle.Visible = true;
             this.gcTitle.VisibleIndex = 0;
@@ -104,8 +104,8 @@ namespace VAGSuite
             // 
             // gcDate
             // 
-            this.gcDate.Caption = "Date";
-            this.gcDate.FieldName = "Date";
+            this.gcDate.Caption = "Fecha";
+            this.gcDate.FieldName = "Fecha";
             this.gcDate.Name = "gcDate";
             this.gcDate.Visible = true;
             this.gcDate.VisibleIndex = 1;
@@ -113,8 +113,8 @@ namespace VAGSuite
             // 
             // gcLink
             // 
-            this.gcLink.Caption = "Link";
-            this.gcLink.FieldName = "link";
+            this.gcLink.Caption = "Enlace";
+            this.gcLink.FieldName = "enlace";
             this.gcLink.Name = "gcLink";
             // 
             // contextMenuStrip1
@@ -128,7 +128,7 @@ namespace VAGSuite
             // 
             this.printPreviewToolStripMenuItem.Name = "printPreviewToolStripMenuItem";
             this.printPreviewToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.printPreviewToolStripMenuItem.Text = "Print preview";
+            this.printPreviewToolStripMenuItem.Text = "Imprimir vista previa";
             this.printPreviewToolStripMenuItem.Click += new System.EventHandler(this.printPreviewToolStripMenuItem_Click);
             // 
             // ctrlReleaseNotes

@@ -83,7 +83,7 @@
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(495, 273);
             this.groupControl1.TabIndex = 0;
-            this.groupControl1.Text = "Details";
+            this.groupControl1.Text = "Detalles";
             // 
             // labelControl8
             // 
@@ -99,7 +99,7 @@
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(73, 13);
             this.labelControl7.TabIndex = 13;
-            this.labelControl7.Text = "Checksum type";
+            this.labelControl7.Text = "Tipo de Checksum";
             // 
             // textEdit7
             // 
@@ -117,7 +117,7 @@
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(45, 13);
             this.labelControl6.TabIndex = 11;
-            this.labelControl6.Text = "ECU type";
+            this.labelControl6.Text = "Tipo de ECU";
             // 
             // textEdit6
             // 
@@ -135,7 +135,7 @@
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(51, 13);
             this.labelControl5.TabIndex = 9;
-            this.labelControl5.Text = "Car details";
+            this.labelControl5.Text = "Detalles Coche";
             // 
             // textEdit5
             // 
@@ -153,7 +153,7 @@
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(57, 13);
             this.labelControl4.TabIndex = 7;
-            this.labelControl4.Text = "Engine type";
+            this.labelControl4.Text = "Tipo motor";
             // 
             // textEdit4
             // 
@@ -171,7 +171,7 @@
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(50, 13);
             this.labelControl3.TabIndex = 5;
-            this.labelControl3.Text = "Info string";
+            this.labelControl3.Text = "Informacion";
             // 
             // textEdit3
             // 
@@ -207,7 +207,7 @@
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(87, 13);
             this.labelControl1.TabIndex = 1;
-            this.labelControl1.Text = "Bosch partnumber";
+            this.labelControl1.Text = "Numero de serie Bosch";
             // 
             // textEdit1
             // 
@@ -251,7 +251,7 @@
             this.Name = "frmFirmwareInfo";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Firmware information";
+            this.Text = "Informacion Firmware";
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();

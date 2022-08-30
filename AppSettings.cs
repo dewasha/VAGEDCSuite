@@ -411,7 +411,7 @@ namespace VAGSuite
                 saveSettings.SetValue("ProjectFolder", m_ProjectFolder);
                 saveSettings.SetValue("RequestProjectNotes", m_RequestProjectNotes);
 
-                saveSettings.SetValue("ViewInHex", m_viewinhex);
+                saveSettings.SetValue("Ver-En-Hexad", m_viewinhex);
                 saveSettings.SetValue("LastFilename", m_lastfilename);
                 saveSettings.SetValue("ShowRedWhite", m_ShowRedWhite);
                 saveSettings.SetValue("AutoChecksum", m_AutoChecksum);
@@ -459,7 +459,7 @@ namespace VAGSuite
                     {
                         try
                         {
-                            if (a == "ViewInHex")
+                            if (a == "Ver-En-Hexad")
                             {
                                 m_viewinhex = Convert.ToBoolean(Settings.GetValue(a).ToString());
                             }

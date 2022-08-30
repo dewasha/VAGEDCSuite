@@ -60,13 +60,13 @@ namespace VAGSuite
             // 
             // gcMissingInOriFile
             // 
-            this.gcMissingInOriFile.Caption = "Missing in original file";
+            this.gcMissingInOriFile.Caption = "Falta en archivo original";
             this.gcMissingInOriFile.FieldName = "MissingInOriFile";
             this.gcMissingInOriFile.Name = "gcMissingInOriFile";
             // 
             // gcMissingInCompareFile
             // 
-            this.gcMissingInCompareFile.Caption = "Missing in compare file";
+            this.gcMissingInCompareFile.Caption = "Falta en archivo comparado";
             this.gcMissingInCompareFile.FieldName = "MissingInCompareFile";
             this.gcMissingInCompareFile.Name = "gcMissingInCompareFile";
             // 
@@ -153,7 +153,7 @@ namespace VAGSuite
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.GroupFormat = "{0}: {1} {2}";
             this.gridView1.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "Category", null, "({0})")});
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "Categoria", null, "({0})")});
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.AllowIncrementalSearch = true;
             this.gridView1.OptionsBehavior.Editable = false;
@@ -183,14 +183,14 @@ namespace VAGSuite
             // 
             // gridColumn3
             // 
-            this.gridColumn3.Caption = "Flash address";
+            this.gridColumn3.Caption = "Direccion Flash";
             this.gridColumn3.FieldName = "FLASHADDRESS";
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Width = 89;
             // 
             // gridColumn4
             // 
-            this.gridColumn4.Caption = "Length (bytes)";
+            this.gridColumn4.Caption = "Longitud (bytes)";
             this.gridColumn4.FieldName = "LENGTHBYTES";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
@@ -199,20 +199,20 @@ namespace VAGSuite
             // 
             // gridColumn5
             // 
-            this.gridColumn5.Caption = "Length (values)";
+            this.gridColumn5.Caption = "Longitud (valores)";
             this.gridColumn5.FieldName = "LENGTHVALUES";
             this.gridColumn5.Name = "gridColumn5";
             // 
             // gridColumn6
             // 
-            this.gridColumn6.Caption = "Description";
+            this.gridColumn6.Caption = "Descripcion";
             this.gridColumn6.FieldName = "DESCRIPTION";
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.Width = 384;
             // 
             // gridColumn7
             // 
-            this.gridColumn7.Caption = "Percentage of values different";
+            this.gridColumn7.Caption = "Porcentaje de valores diferentes";
             this.gridColumn7.DisplayFormat.FormatString = "{0:F1}";
             this.gridColumn7.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.gridColumn7.FieldName = "DIFFPERCENTAGE";
@@ -223,7 +223,7 @@ namespace VAGSuite
             // 
             // gridColumn8
             // 
-            this.gridColumn8.Caption = "Number of values different";
+            this.gridColumn8.Caption = "Numero de valores diferentes";
             this.gridColumn8.FieldName = "DIFFABSOLUTE";
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
@@ -232,7 +232,7 @@ namespace VAGSuite
             // 
             // gridColumn9
             // 
-            this.gridColumn9.Caption = "Average difference";
+            this.gridColumn9.Caption = "Media de Diferencia";
             this.gridColumn9.DisplayFormat.FormatString = "{0:F1}";
             this.gridColumn9.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.gridColumn9.FieldName = "DIFFAVERAGE";
@@ -243,13 +243,13 @@ namespace VAGSuite
             // 
             // gridColumn10
             // 
-            this.gridColumn10.Caption = "Category";
+            this.gridColumn10.Caption = "Categoria";
             this.gridColumn10.FieldName = "CATEGORYNAME";
             this.gridColumn10.Name = "gridColumn10";
             // 
             // gridColumn11
             // 
-            this.gridColumn11.Caption = "Subcategory";
+            this.gridColumn11.Caption = "Subcategoria";
             this.gridColumn11.FieldName = "SUBCATEGORYNAME";
             this.gridColumn11.Name = "gridColumn11";
             // 
@@ -267,7 +267,7 @@ namespace VAGSuite
             // 
             // gridColumn14
             // 
-            this.gridColumn14.Caption = "User description";
+            this.gridColumn14.Caption = "Descripcion Usuario";
             this.gridColumn14.FieldName = "Userdescription";
             this.gridColumn14.Name = "gridColumn14";
             // 

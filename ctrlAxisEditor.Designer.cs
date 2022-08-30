@@ -56,7 +56,7 @@ namespace VAGSuite
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "Save data";
+            this.toolStripButton1.Text = "Guardar datos";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // gridControl1
@@ -89,8 +89,8 @@ namespace VAGSuite
             // 
             this.gridColumn1.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn1.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn1.Caption = "axis values";
-            this.gridColumn1.FieldName = "VALUE";
+            this.gridColumn1.Caption = "valores ejes";
+            this.gridColumn1.FieldName = "VALOR";
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 0;

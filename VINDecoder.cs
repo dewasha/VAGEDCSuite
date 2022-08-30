@@ -33,19 +33,19 @@ namespace VAGSuite
             switch (vin[5])
             {
                 case 'A':
-                    retval = "Lowest output gas engine";
+                    retval = "Motor de gasolina pequeño";
                     break;
                 case 'B':
-                    retval = "2nd lowest output gas engine";
+                    retval = "Motor de gasolina";
                     break;
                 case 'D':
                     retval = "VR6";
                     break;
                 case 'F':
-                    retval = "2nd lowest output diesel engine (1.6/1.9L TD/TDI)";
+                    retval = "Motor diesel (1.6/1.9L TD/TDI)";
                     break;
                 case 'G':
-                    retval = "Lowest output diesel (1.5/1.6L)";
+                    retval = "Motor diesel pequeño (1.5/1.6L)";
                     break;
 
             }

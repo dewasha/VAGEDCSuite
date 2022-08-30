@@ -35,9 +35,9 @@ namespace VAGSuite
             bool retval = false;
             x_axis = "";
             y_axis = "";
-            x_axis_description = "x-axis";
-            y_axis_description = "y-axis";
-            z_axis_description = "z-axis";
+            x_axis_description = "eje x";
+            y_axis_description = "eje y";
+            z_axis_description = "eje z";
             int xid = GetSymbolAxisXID(curSymbols, symbolname);
             y_axis_description = TranslateAxisID(xid);
             int yid = GetSymbolAxisYID(curSymbols, symbolname);

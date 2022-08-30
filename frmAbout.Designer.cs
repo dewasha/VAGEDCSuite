@@ -88,7 +88,7 @@ namespace VAGSuite
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(332, 47);
             this.labelControl2.TabIndex = 2;
-            this.labelControl2.Text = "VAGEDCSuite was created with the help of lots of people on ecuconnections.com and" +
+            this.labelControl2.Text = "VAGEDCSuite con la ayuda de mucha gente de ecuconnections.com y" +
                 " chiptuners.org";
             this.labelControl2.DoubleClick += new System.EventHandler(this.labelControl2_DoubleClick);
             // 
@@ -101,7 +101,7 @@ namespace VAGSuite
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(269, 25);
             this.labelControl3.TabIndex = 3;
-            this.labelControl3.Text = "Special thanks go out to:";
+            this.labelControl3.Text = "Agradecimiento especial a:";
             this.labelControl3.DoubleClick += new System.EventHandler(this.labelControl3_DoubleClick);
             // 
             // labelControl5
@@ -114,7 +114,7 @@ namespace VAGSuite
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(188, 36);
             this.labelControl5.TabIndex = 5;
-            this.labelControl5.Text = "You can send an email for support to t5suite@home.nl";
+            this.labelControl5.Text = "Puedes enviar un mail para soporte a la direccion t5suite@home.nl";
             this.labelControl5.DoubleClick += new System.EventHandler(this.labelControl5_DoubleClick);
             // 
             // labelControl6
@@ -155,7 +155,7 @@ namespace VAGSuite
             this.MinimizeBox = false;
             this.Name = "frmAbout";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "About...";
+            this.Text = "Acerca...";
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.hyperLinkEdit1.Properties)).EndInit();

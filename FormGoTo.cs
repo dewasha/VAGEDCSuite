@@ -79,7 +79,7 @@ namespace VAGSuite
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 1;
-            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Text = "Cancelar";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnOK
@@ -129,7 +129,7 @@ namespace VAGSuite
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 16);
             this.label2.TabIndex = 10;
-            this.label2.Text = "Goto";
+            this.label2.Text = "Ir a";
             // 
             // FormGoTo
             // 
